@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Bootstrap Dashboard | Starter</title>
+    <partial name="Dashboardpack/_Styles" />
+    <!-- REQUIRED SCRIPTS -->
+  @*<partial name="AdminLTE/_Scripts" />*@
+  </head>
+  <body>
+    <div
+      class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header"
+    >
+      <partial name="Dashboardpack/_Scripts" />
+      <!-- Navbar -->
+      <partial name="Dashboardpack/_TopNavigation" />
+      <!-- Main Sidebar Container -->
+      <div class="app-main">
+        <partial name="Dashboardpack/_SideBarNavigation" />
+        <!-- Content Wrapper. Contains page content -->
+      @* <div class="content-wrapper"> <div class="content"> *@
+        <div class="app-main__outer">@RenderBody()</div>
+      </div>
+    @* </div> </div> *@
+      <!-- /.content-wrapper -->
+      <!-- Main Footer -->
+    @* <partial name="Dashboardpack/_Footer" /> *@
+    </div>
+  @*<partial name="AdminLTE/_Scripts" />*@
+  </body>
+</html>
+
+
