@@ -64,53 +64,55 @@ public class BibliotecaContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         Guid generoPoliciaco = Guid.NewGuid();
+        DateTime c = DateTime.UtcNow;
+        DateTime u = DateTime.UtcNow;
         base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<Genero>().HasData(
         new Genero
         {
-            Id = generoPoliciaco,
+            CategoryId = 1,
             Nombre = "Novela Policiaca",
-            CreatedAt = DateTime.UtcNow,
-            UpdatedAt = DateTime.UtcNow
+            CreatedAt = c,
+            UpdatedAt = u
         },
         new Genero
         {
-            Id = Guid.NewGuid(),
+            CategoryId = 2,
             Nombre = "Romántico",
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow
         },
         new Genero
         {
-            Id = Guid.NewGuid(),
+            CategoryId = 3,
             Nombre = "Erótico",
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow
         },
         new Genero
         {
-            Id = Guid.NewGuid(),
+            CategoryId = 4,
             Nombre = "Ficción",
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow
         },
         new Genero
         {
-            Id = Guid.NewGuid(),
+            CategoryId = 5,
             Nombre = "Biografía",
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow
         },
         new Genero
         {
-            Id = Guid.NewGuid(),
+            CategoryId = 6,
             Nombre = "Ensayo",
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow
         },
         new Genero
         {
-            Id = Guid.NewGuid(),
+            CategoryId = 7,
             Nombre = "Poesía",
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow
@@ -120,9 +122,9 @@ public class BibliotecaContext : DbContext
         modelBuilder.Entity<Libro>().HasData(
             new Libro
             {
-                Id = Guid.NewGuid(),
+                IdBook = 1,
                 Nombre = "Una pica en Flandes",
-                GeneroId = generoPoliciaco,
+                CategoryId = 1,
                 ISBN = "978-84-8136-542-9",
                 Estado = false,
                 CreatedAt = DateTime.UtcNow,
@@ -130,9 +132,9 @@ public class BibliotecaContext : DbContext
             },
             new Libro
             {
-                Id = Guid.NewGuid(),
+                IdBook = 2,
                 Nombre = "Allá ellos",
-                GeneroId = generoPoliciaco,
+                CategoryId = 1,
                 ISBN = "978-84-15313-05-2",
                 Estado = false,
                 CreatedAt = DateTime.UtcNow,
@@ -140,9 +142,9 @@ public class BibliotecaContext : DbContext
             },
             new Libro
             {
-                Id = Guid.NewGuid(),
+                IdBook = 3,
                 Nombre = "Adiós muchachos",
-                GeneroId = generoPoliciaco,
+                CategoryId = 1,
                 ISBN = "978-84-15313-59-5",
                 Estado = false,
                 CreatedAt = DateTime.UtcNow,
@@ -150,9 +152,9 @@ public class BibliotecaContext : DbContext
             },
             new Libro
             {
-                Id = Guid.NewGuid(),
+                IdBook = 4,
                 Nombre = "Juguete nuevo",
-                GeneroId = generoPoliciaco,
+                CategoryId = 1,
                 ISBN = "978-84-7884-546-0",
                 Estado = false,
                 CreatedAt = DateTime.UtcNow,
@@ -160,9 +162,9 @@ public class BibliotecaContext : DbContext
             },
             new Libro
             {
-                Id = Guid.NewGuid(),
+                IdBook = 5,
                 Nombre = "Raúl Sendic",
-                GeneroId = generoPoliciaco,
+                CategoryId = 1,
                 ISBN = "978-84-16350-14-8",
                 Estado = true,
                 CreatedAt = DateTime.UtcNow,
@@ -170,9 +172,9 @@ public class BibliotecaContext : DbContext
             },
             new Libro
             {
-                Id = Guid.NewGuid(),
+                IdBook = 6,
                 Nombre = "Aquel año en Madrid",
-                GeneroId = generoPoliciaco,
+                CategoryId = 1,
                 ISBN = "978-84-7884-500-2",
                 Estado = true,
                 CreatedAt = DateTime.UtcNow,
@@ -180,9 +182,9 @@ public class BibliotecaContext : DbContext
             },
             new Libro
             {
-                Id = Guid.NewGuid(),
+                IdBook = 7,
                 Nombre = "El último room service",
-                GeneroId = generoPoliciaco,
+                CategoryId = 1,
                 ISBN = "978-956-366-003-6",
                 Estado = true,
                 CreatedAt = DateTime.UtcNow,
@@ -190,9 +192,9 @@ public class BibliotecaContext : DbContext
             },
             new Libro
             {
-                Id = Guid.NewGuid(),
+                IdBook = 8,
                 Nombre = "Príapos",
-                GeneroId = generoPoliciaco,
+                CategoryId = 1,
                 ISBN = "978-84-8136-572-6",
                 Estado = false,
                 CreatedAt = DateTime.UtcNow,
@@ -200,9 +202,9 @@ public class BibliotecaContext : DbContext
             },
             new Libro
             {
-                Id = Guid.NewGuid(),
+                IdBook = 9,
                 Nombre = "LO QUE DURA DURA",
-                GeneroId = generoPoliciaco,
+                CategoryId = 1,
                 ISBN = "978-84-96546-19-6",
                 Estado = false,
                 CreatedAt = DateTime.UtcNow,
@@ -210,9 +212,9 @@ public class BibliotecaContext : DbContext
             },
             new Libro
             {
-                Id = Guid.NewGuid(),
+                IdBook = 10,
                 Nombre = "De la Habana ha llegado",
-                GeneroId = generoPoliciaco,
+                CategoryId = 1,
                 ISBN = "978-84-7884-370-1",
                 Estado = false,
                 CreatedAt = DateTime.UtcNow,
@@ -220,9 +222,9 @@ public class BibliotecaContext : DbContext
             },
             new Libro
             {
-                Id = Guid.NewGuid(),
+                IdBook = 11,
                 Nombre = "El aguacate y la virtud",
-                GeneroId = generoPoliciaco,
+                CategoryId = 1,
                 ISBN = "978-959-218-103-8",
                 Estado = false,
                 CreatedAt = DateTime.UtcNow,

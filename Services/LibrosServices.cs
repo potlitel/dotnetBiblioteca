@@ -1,9 +1,11 @@
 using BootstrapDashboard.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BootstrapDashboard.Services
 {
     public interface ILibrosService
     {
+        // Task<List<Libro>> GetLibrosAsync();
         List<Libro> GetLibrosAsync();
     }
 
@@ -20,11 +22,12 @@ namespace BootstrapDashboard.Services
          * @returns {a        */
         public List<Libro> GetLibrosAsync()
         {
+            // var applicationDbContext = _context.Libros.Include(t => t.Category);
             List<Libro> books = new List<Libro>();
 
             try
             {
-                books = _context.Libros.ToList();
+                books = _context.Libros.Include(t => t.Category).ToList();
             }
             catch (Exception)
             {

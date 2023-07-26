@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BootstrapDashboard.Migrations
 {
     [DbContext(typeof(BibliotecaContext))]
-    [Migration("20230726021829_MigracionRectificandoModeloLibros2")]
-    partial class MigracionRectificandoModeloLibros2
+    [Migration("20230726125936_MigracionInicial")]
+    partial class MigracionInicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,10 +27,11 @@ namespace BootstrapDashboard.Migrations
 
             modelBuilder.Entity("BootstrapDashboard.Models.Genero", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("GeneroId");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"));
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2")
@@ -45,68 +46,72 @@ namespace BootstrapDashboard.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_at");
 
-                    b.HasKey("Id");
+                    b.HasKey("CategoryId");
 
                     b.ToTable("generos");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1e62aecd-5580-4b98-a9c4-0c95f3a0b4bc"),
-                            CreatedAt = new DateTime(2023, 7, 26, 2, 18, 28, 923, DateTimeKind.Utc).AddTicks(2598),
+                            CategoryId = 1,
+                            CreatedAt = new DateTime(2023, 7, 26, 12, 59, 35, 920, DateTimeKind.Utc).AddTicks(9192),
                             Nombre = "Novela Policiaca",
-                            UpdatedAt = new DateTime(2023, 7, 26, 2, 18, 28, 923, DateTimeKind.Utc).AddTicks(2602)
+                            UpdatedAt = new DateTime(2023, 7, 26, 12, 59, 35, 920, DateTimeKind.Utc).AddTicks(9195)
                         },
                         new
                         {
-                            Id = new Guid("903870cc-b2a9-4209-91cd-3db5c7e75524"),
-                            CreatedAt = new DateTime(2023, 7, 26, 2, 18, 28, 923, DateTimeKind.Utc).AddTicks(2615),
+                            CategoryId = 2,
+                            CreatedAt = new DateTime(2023, 7, 26, 12, 59, 35, 920, DateTimeKind.Utc).AddTicks(9273),
                             Nombre = "Romántico",
-                            UpdatedAt = new DateTime(2023, 7, 26, 2, 18, 28, 923, DateTimeKind.Utc).AddTicks(2615)
+                            UpdatedAt = new DateTime(2023, 7, 26, 12, 59, 35, 920, DateTimeKind.Utc).AddTicks(9274)
                         },
                         new
                         {
-                            Id = new Guid("edf1e5e2-013f-4865-a558-b39cde8d9c4b"),
-                            CreatedAt = new DateTime(2023, 7, 26, 2, 18, 28, 923, DateTimeKind.Utc).AddTicks(2617),
+                            CategoryId = 3,
+                            CreatedAt = new DateTime(2023, 7, 26, 12, 59, 35, 920, DateTimeKind.Utc).AddTicks(9275),
                             Nombre = "Erótico",
-                            UpdatedAt = new DateTime(2023, 7, 26, 2, 18, 28, 923, DateTimeKind.Utc).AddTicks(2617)
+                            UpdatedAt = new DateTime(2023, 7, 26, 12, 59, 35, 920, DateTimeKind.Utc).AddTicks(9275)
                         },
                         new
                         {
-                            Id = new Guid("9eefa308-1d93-4d05-a667-cfd235cbe567"),
-                            CreatedAt = new DateTime(2023, 7, 26, 2, 18, 28, 923, DateTimeKind.Utc).AddTicks(2619),
+                            CategoryId = 4,
+                            CreatedAt = new DateTime(2023, 7, 26, 12, 59, 35, 920, DateTimeKind.Utc).AddTicks(9276),
                             Nombre = "Ficción",
-                            UpdatedAt = new DateTime(2023, 7, 26, 2, 18, 28, 923, DateTimeKind.Utc).AddTicks(2619)
+                            UpdatedAt = new DateTime(2023, 7, 26, 12, 59, 35, 920, DateTimeKind.Utc).AddTicks(9277)
                         },
                         new
                         {
-                            Id = new Guid("e5b5ccd8-750d-4629-82a5-28d634ff9049"),
-                            CreatedAt = new DateTime(2023, 7, 26, 2, 18, 28, 923, DateTimeKind.Utc).AddTicks(2621),
+                            CategoryId = 5,
+                            CreatedAt = new DateTime(2023, 7, 26, 12, 59, 35, 920, DateTimeKind.Utc).AddTicks(9278),
                             Nombre = "Biografía",
-                            UpdatedAt = new DateTime(2023, 7, 26, 2, 18, 28, 923, DateTimeKind.Utc).AddTicks(2621)
+                            UpdatedAt = new DateTime(2023, 7, 26, 12, 59, 35, 920, DateTimeKind.Utc).AddTicks(9278)
                         },
                         new
                         {
-                            Id = new Guid("d560e178-fa55-4384-8436-a927d8ef1a70"),
-                            CreatedAt = new DateTime(2023, 7, 26, 2, 18, 28, 923, DateTimeKind.Utc).AddTicks(2622),
+                            CategoryId = 6,
+                            CreatedAt = new DateTime(2023, 7, 26, 12, 59, 35, 920, DateTimeKind.Utc).AddTicks(9279),
                             Nombre = "Ensayo",
-                            UpdatedAt = new DateTime(2023, 7, 26, 2, 18, 28, 923, DateTimeKind.Utc).AddTicks(2623)
+                            UpdatedAt = new DateTime(2023, 7, 26, 12, 59, 35, 920, DateTimeKind.Utc).AddTicks(9279)
                         },
                         new
                         {
-                            Id = new Guid("64bd2418-5895-4dba-bf45-66913e8a1b55"),
-                            CreatedAt = new DateTime(2023, 7, 26, 2, 18, 28, 923, DateTimeKind.Utc).AddTicks(2624),
+                            CategoryId = 7,
+                            CreatedAt = new DateTime(2023, 7, 26, 12, 59, 35, 920, DateTimeKind.Utc).AddTicks(9281),
                             Nombre = "Poesía",
-                            UpdatedAt = new DateTime(2023, 7, 26, 2, 18, 28, 923, DateTimeKind.Utc).AddTicks(2625)
+                            UpdatedAt = new DateTime(2023, 7, 26, 12, 59, 35, 920, DateTimeKind.Utc).AddTicks(9282)
                         });
                 });
 
             modelBuilder.Entity("BootstrapDashboard.Models.Libro", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("IdBook")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("LibroId");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdBook"));
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2")
@@ -114,9 +119,6 @@ namespace BootstrapDashboard.Migrations
 
                     b.Property<bool>("Estado")
                         .HasColumnType("bit");
-
-                    b.Property<Guid>("GeneroId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ISBN")
                         .IsRequired()
@@ -131,34 +133,34 @@ namespace BootstrapDashboard.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_at");
 
-                    b.HasKey("Id");
+                    b.HasKey("IdBook");
 
-                    b.HasIndex("GeneroId");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("libros");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("3740aa8b-7d79-4605-b5f3-7781b18489cf"),
-                            CreatedAt = new DateTime(2023, 7, 26, 2, 18, 28, 923, DateTimeKind.Utc).AddTicks(2848),
+                            IdBook = 1,
+                            CategoryId = 1,
+                            CreatedAt = new DateTime(2023, 7, 26, 12, 59, 35, 920, DateTimeKind.Utc).AddTicks(9442),
                             Estado = false,
-                            GeneroId = new Guid("1e62aecd-5580-4b98-a9c4-0c95f3a0b4bc"),
                             ISBN = "978-84-8136-542-9",
                             Nombre = "Una pica en Flandes",
-                            UpdatedAt = new DateTime(2023, 7, 26, 2, 18, 28, 923, DateTimeKind.Utc).AddTicks(2849)
+                            UpdatedAt = new DateTime(2023, 7, 26, 12, 59, 35, 920, DateTimeKind.Utc).AddTicks(9442)
                         });
                 });
 
             modelBuilder.Entity("BootstrapDashboard.Models.Libro", b =>
                 {
-                    b.HasOne("BootstrapDashboard.Models.Genero", "Genero")
+                    b.HasOne("BootstrapDashboard.Models.Genero", "Category")
                         .WithMany()
-                        .HasForeignKey("GeneroId")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Genero");
+                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }
