@@ -1,0 +1,81 @@
+@model Libro
+@{
+    ViewData["Title"] = "Crear Libro"; 
+    Layout = "~/Views/Shared/Dashboardpack/_Layout.cshtml";
+    ViewData["PageTitle"] = Model.IdBook == 0 ? "Create a new category" : "Edit category";
+} 
+
+
+<div class="app-main__inner">
+
+<div class="app-page-title">
+              <div class="page-title-wrapper">
+                <div class="page-title-heading">
+                  <div class="page-title-icon">
+                    <i class="pe-7s-notebook icon-gradient bg-mean-fruit"> </i>
+                  </div>
+                  <div>
+                    @if (Model.IdBook == 0){
+                        <p> Crear Libro </p>
+                    } else{
+                        <p> Editar Libro </p>
+                    }
+                    
+                    <div class="page-title-subheading">
+                      This is an example dashboard created using build-in
+                      elements and components.
+                    </div>
+                  </div>
+                </div></div></div><!-- Default box -->
+    <div class="card">
+
+    <div class="card-body row">
+            <div class="col-5 text-center d-flex align-items-center justify-content-center">
+                <div class="">
+                    @* <h2>Admin<strong>LTE</strong></h2> *@
+                    <h2>Biblioteca Municipal</h2>
+                    <p class="lead mb-5">
+                        123 Testing Ave, Testtown, 9876 NA<br>
+                        Phone: +1 234 56789012
+                    </p>
+                </div>
+            </div>
+            <div class="col-7">
+                <form method="post" asp-action="Crear">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" name="IdBook" value="@Model.IdBook" />
+                <div class="form-group">
+                    <label asp-for="Nombre">Nombre</label>
+                    <input type="text" asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger fs-6"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CategoryId">Género</label>
+                    <select asp-for="CategoryId" name="CategoryId" class="form-control" asp-items="@ViewBag.Generos">
+                        <option selected >---Seleccione Género---</option>
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger fs-6"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ISBN">ISBN</label>
+                    <input asp-for="ISBN" type="text" id="ISBN" class="form-control" />
+                    <span asp-validation-for="ISBN" class="text-danger fs-6"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Salvar">
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* @section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+} *@
+
+@* @section Scripts {
+    @{ <partial name="_ValidationScriptsPartial" />; }
+} *@

@@ -21,9 +21,9 @@ public class Libro : BaseEntity
 
     // public int IdGenero { get; set; }
     // public Genero? Genero { get; set; }
-    [Range(1, int.MaxValue, ErrorMessage = "Please select a category.")]
+    [Range(1, int.MaxValue, ErrorMessage = "Por favor seleccione un género.")]
     public int CategoryId { get; set; }
-    public Genero Category { get; set; }
+    public Genero? Category { get; set; }
 
     [Required(ErrorMessage = "ISBN es requerido")]
     [MaxLength(20, ErrorMessage = "El ISBN de un libro no puede exceder los {0} caracteres")]
