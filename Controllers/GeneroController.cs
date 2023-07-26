@@ -1,21 +1,28 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using BootstrapDashboard.Models;
+using BootstrapDashboard.Services;
 
 namespace BootstrapDashboard.Controllers;
 
 public class GeneroController : Controller
 {
-    // private readonly IGenerosService albumesService;
+    private readonly IGenerosService _albumesService;
 
-    public GeneroController()
-    {
-        // albumesService = service;
-    }
+    /**
+     * Description: Constructor de la clase
+     * @param {any} IGenerosServicealbumesService
+     * @returns {any}
+        */
+    public GeneroController(IGenerosService albumesService) => _albumesService = albumesService;
 
+    /**
+     * Description
+     * @returns {any}
+        */
     public IActionResult Index()
     {
-        // var result = albumesService.GetGenerosAsync();
-        return View();
+        var result = _albumesService.GetGenerosAsync();
+        return View(result);
     }
 }

@@ -2,36 +2,36 @@ using BootstrapDashboard.Models;
 
 namespace BootstrapDashboard.Services
 {
-    public interface IGenerosService
+    public interface ILibrosService
     {
-        List<Genero> GetGenerosAsync();
+        List<Libro> GetLibrosAsync();
     }
 
-    public class GenerosService : IGenerosService
+    public class LibrosService : ILibrosService
     {
         private readonly BibliotecaContext _context;
         /**
          * Description: Constructor de la clase
          * @param {any} BibliotecaContextcontext
          * @returns {a        */
-        public GenerosService(BibliotecaContext context) => _context = context;
+        public LibrosService(BibliotecaContext context) => _context = context;
         /**
          * Description: Método para obtener el listado de Géneros
          * @returns {a        */
-        public List<Genero> GetGenerosAsync()
+        public List<Libro> GetLibrosAsync()
         {
-            List<Genero> generos = new List<Genero>();
+            List<Libro> books = new List<Libro>();
 
             try
             {
-                generos = _context.Genero.ToList();
+                books = _context.Libros.ToList();
             }
             catch (Exception)
             {
                 throw;
             }
 
-            return generos;
+            return books;
         }
     }
 }

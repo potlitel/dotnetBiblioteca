@@ -9,6 +9,9 @@ public class BibliotecaContext : DbContext
     }
 
     public DbSet<Genero> Genero { get; set; }
+    public DbSet<Libro> Libros { get; set; }
+
+    // public DbSet<Lector> Lectores { get; set; }
 
     public override int SaveChanges(bool acceptAllChangesOnSuccess)
     {
@@ -60,11 +63,12 @@ public class BibliotecaContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        Guid generoPoliciaco = Guid.NewGuid();
         base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<Genero>().HasData(
         new Genero
         {
-            Id = Guid.NewGuid(),
+            Id = generoPoliciaco,
             Nombre = "Novela Policiaca",
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow
@@ -112,6 +116,120 @@ public class BibliotecaContext : DbContext
             UpdatedAt = DateTime.UtcNow
         }
     );
+        //https://www.todostuslibros.com/autor/daniel-chavarria
+        modelBuilder.Entity<Libro>().HasData(
+            new Libro
+            {
+                Id = Guid.NewGuid(),
+                Nombre = "Una pica en Flandes",
+                GeneroId = generoPoliciaco,
+                ISBN = "978-84-8136-542-9",
+                Estado = false,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Libro
+            {
+                Id = Guid.NewGuid(),
+                Nombre = "Allá ellos",
+                GeneroId = generoPoliciaco,
+                ISBN = "978-84-15313-05-2",
+                Estado = false,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Libro
+            {
+                Id = Guid.NewGuid(),
+                Nombre = "Adiós muchachos",
+                GeneroId = generoPoliciaco,
+                ISBN = "978-84-15313-59-5",
+                Estado = false,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Libro
+            {
+                Id = Guid.NewGuid(),
+                Nombre = "Juguete nuevo",
+                GeneroId = generoPoliciaco,
+                ISBN = "978-84-7884-546-0",
+                Estado = false,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Libro
+            {
+                Id = Guid.NewGuid(),
+                Nombre = "Raúl Sendic",
+                GeneroId = generoPoliciaco,
+                ISBN = "978-84-16350-14-8",
+                Estado = true,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Libro
+            {
+                Id = Guid.NewGuid(),
+                Nombre = "Aquel año en Madrid",
+                GeneroId = generoPoliciaco,
+                ISBN = "978-84-7884-500-2",
+                Estado = true,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Libro
+            {
+                Id = Guid.NewGuid(),
+                Nombre = "El último room service",
+                GeneroId = generoPoliciaco,
+                ISBN = "978-956-366-003-6",
+                Estado = true,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Libro
+            {
+                Id = Guid.NewGuid(),
+                Nombre = "Príapos",
+                GeneroId = generoPoliciaco,
+                ISBN = "978-84-8136-572-6",
+                Estado = false,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Libro
+            {
+                Id = Guid.NewGuid(),
+                Nombre = "LO QUE DURA DURA",
+                GeneroId = generoPoliciaco,
+                ISBN = "978-84-96546-19-6",
+                Estado = false,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Libro
+            {
+                Id = Guid.NewGuid(),
+                Nombre = "De la Habana ha llegado",
+                GeneroId = generoPoliciaco,
+                ISBN = "978-84-7884-370-1",
+                Estado = false,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Libro
+            {
+                Id = Guid.NewGuid(),
+                Nombre = "El aguacate y la virtud",
+                GeneroId = generoPoliciaco,
+                ISBN = "978-959-218-103-8",
+                Estado = false,
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            }
+        )
+        ;
         // modelBuilder.Entity<Course>().ToTable("Course");
         // modelBuilder.Entity<Enrollment>().ToTable("Enrollment");
         // modelBuilder.Entity<Student>().ToTable("Student");

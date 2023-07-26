@@ -20985,6 +20985,9 @@ a.fc-more:hover {
   margin-bottom: 30px;
   background-size: 100%;
 }
-.customIcon{
-  font-size: 1.6rem; font-weight: bold; line-height: 1.3; color: #4845D2;
+.customIcon {
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: 1.3;
+  color: #4845d2;
 }

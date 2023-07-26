@@ -1,3 +1,4 @@
+using BootstrapDashboard.Middleware;
 using BootstrapDashboard.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -8,6 +9,8 @@ builder.Services.AddDbContext<BibliotecaContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+IoC.AddDependency(builder.Services);
 
 var app = builder.Build();
 
