@@ -43,8 +43,9 @@
             <div class="col-7">
                 <form method="post" asp-action="Crear">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" name="IdBook" value="@Model.IdBook" />
+                
                 <div class="form-group">
+                    <input type="hidden" name="IdBook" value="@Model.IdBook" />
                     <label asp-for="Nombre">Nombre</label>
                     <input type="text" asp-for="Nombre" class="form-control" />
                     <span asp-validation-for="Nombre" class="text-danger fs-6"></span>

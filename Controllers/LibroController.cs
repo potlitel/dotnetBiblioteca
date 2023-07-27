@@ -32,21 +32,35 @@ public class LibroController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Crear([Bind("Nombre,CategoryId,ISBN")] Libro libro)
+    public IActionResult Crear([Bind("IdBook, Nombre,CategoryId,ISBN")] Libro libro)
     {
         if (ModelState.IsValid)
         {
             if (libro.IdBook == 0)
-                // _context.Add(transaction);
+            {
                 _albumesService.AddLibro(libro);
+                TempData["mensaje"] = string.Format("El libro {0} ha sido adicionado correctamente.", libro.Nombre.ToString());
+            }
             else
-                // _context.Update(transaction);
+            {
                 _albumesService.UpdateLibro(libro);
-            // await _context.SaveChangesAsync();
+                TempData["mensaje"] = string.Format("El libro {0} ha sido modificado correctamente", libro.Nombre.ToString());
+            }
+
             return RedirectToAction(nameof(Index));
         }
         PopulateGeneros();
         return View(model: libro);
+    }
+
+    // POST: Libro/Delete/5
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public IActionResult DeleteConfirmed(int id)
+    {
+        _albumesService.DeleteLibro(id);
+        TempData["mensaje"] = string.Format("El libro ha sido eliminado correctamente");
+        return RedirectToAction(nameof(Index));
     }
 
     [NonAction]

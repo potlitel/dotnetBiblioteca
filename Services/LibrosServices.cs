@@ -15,6 +15,8 @@ namespace BootstrapDashboard.Services
         void AddLibro(Libro libro);
 
         void UpdateLibro(Libro libro);
+
+        void DeleteLibro(int Id);
     }
 
     public class LibrosService : ILibrosService
@@ -51,6 +53,9 @@ namespace BootstrapDashboard.Services
          * @returns {a        */
         public Libro GetLibroById(int Id) => _context.Libros.Find(keyValues: Id);
 
+        /**
+         * Description: Function para listar todo los generos
+         * @returns {a        */
         public List<SelectListItem> PopulateGeneros()
         {
             var CategoryCollection = _context.Genero.Select(c => new SelectListItem() { Text = c.Nombre, Value = c.CategoryId.ToString() }).ToList();
@@ -59,15 +64,38 @@ namespace BootstrapDashboard.Services
             return CategoryCollection;
         }
 
+        /**
+         * Description: Function para adicionar un libro
+         * @param {any} Librolibro
+         * @returns {a        */
         public void AddLibro(Libro libro)
         {
             _context.Libros.Add(libro);
             _context.SaveChanges();
         }
 
+        /**
+         * Description:Function para modificar un libro
+         * @param {any} Librolibro
+         * @returns {a        */
         public void UpdateLibro(Libro libro)
         {
             _context.Libros.Update(libro);
+            _context.SaveChanges();
+        }
+
+        /**
+         * Description: Function para eliminar un libro
+         * @param {any} intId
+         * @returns {a        */
+        public void DeleteLibro(int Id)
+        {
+            // if (_context.Libros == null)
+            // {
+            //     return Exception("Entity set 'ApplicationDbContext.Libros'  is null.");
+            // }
+            var libro = _context.Libros.Find(keyValues: Id);
+            _context.Libros.Remove(libro);
             _context.SaveChanges();
         }
     }
