@@ -10,7 +10,7 @@
 
 <div class="app-page-title">
               <div class="page-title-wrapper">
-                <div class="page-title-heading">
+                @* <div class="page-title-heading">
                   <div class="page-title-icon">
                     <i class="pe-7s-notebook icon-gradient bg-mean-fruit"> </i>
                   </div>
@@ -25,13 +25,31 @@
                       elements and components.
                     </div>
                   </div>
-                </div></div></div><!-- Default box -->
+                </div> *@
+                <div class="page-title-heading">
+                  <div class="page-title-icon">
+                    <i class="pe-7s-ticket icon-gradient bg-mean-fruit"> </i>
+                  </div>
+                  <div>
+                    Libros
+                    <div class="page-title-subheading">
+                      This is an example dashboard created using build-in
+                      elements and components.
+                    </div>
+                  </div>
+                </div>
+                </div></div><!-- Default box -->
     <div class="card">
 
     <div class="card-body row">
             <div class="col-5 text-center d-flex align-items-center justify-content-center">
                 <div class="">
                     @* <h2>Admin<strong>LTE</strong></h2> *@
+                    @if (Model.IdBook == 0){
+                        <h3><i class="fa fa-plus" ></i> Crear Libro </h3>
+                    } else{
+                        <h3><i class="pe-7s-note btn-icon-wrapper"></i> Editar Libro </h3>
+                    }
                     <h2>Biblioteca Municipal</h2>
                     <p class="lead mb-5">
                         123 Testing Ave, Testtown, 9876 NA<br>

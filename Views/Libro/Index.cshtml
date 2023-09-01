@@ -11,7 +11,7 @@
               <div class="page-title-wrapper">
                 <div class="page-title-heading">
                   <div class="page-title-icon">
-                    <i class="pe-7s-notebook icon-gradient bg-mean-fruit"> </i>
+                    <i class="pe-7s-ticket icon-gradient bg-mean-fruit"> </i>
                   </div>
                   <div>
                     Libros
@@ -22,14 +22,15 @@
                   </div>
                 </div>
                 <div class="page-title-actions">
+                  
                   <button
                     type="button"
                     data-toggle="tooltip"
-                    title="Example Tooltip"
+                    title="Crear libro"
                     data-placement="bottom"
-                    class="btn-shadow mr-3 btn btn-dark"
+                    class="btn-shadow mr-3 btn"
                   >
-                    <a asp-area="" class="btn btn-sm no-a-decoration" asp-controller="Libro" asp-action="Crear"><i class="fa fa-star" ></i></a>
+                    <a asp-area="" class="btn btn-primary btn-lg" asp-controller="Libro" asp-action="Crear"><i class="fa fa-plus" ></i></a>
                   </button>
                   @* <div class="d-inline-block dropdown">
                     <button
@@ -112,7 +113,7 @@ else{
 <div class="row">
               <div class="col-md-12">
                 <div class="main-card mb-3 card">
-                  <div class="card-header">
+                  <div class="card-header d-flex flex-row justify-content-between align-items-center">
                     Listado
                     @* <div class="btn-actions-pane-right">
                       <div role="group" class="btn-group-sm btn-group">
@@ -120,6 +121,16 @@ else{
                         <button class="btn btn-focus">All Month</button>
                       </div>
                     </div> *@
+                    <div class="search-box">
+                      <form class="form-inline">
+                        <div class="form-group">
+                            <input type="text" name="q" value="@ViewBag.searchQuery" class="search-text form-control" placeholder="Localiza tu libro..." />
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-toggle="tooltip" title="Buscar" data-placement="bottom"><i class="fa fa-search" ></i></button>|
+                        <button asp-action="Index" class="btn btn-primary" data-toggle="tooltip" title="Recargar datos de listado" data-placement="bottom"><i class="fa fa-refresh" ></i></button>
+                        @* <a >Back to Full List</a> *@
+                      </form>
+                  </div>
                   </div>
                   <div class="table-responsive">
                     <table
@@ -175,20 +186,54 @@ else{
                             
                           </td>
                           <td class="text-center">
-                            <div class="d-flex flex-row justify-content-start">
-                            <a class="btn btn-sm no-a-decoration" asp-controller="Libro" asp-action="Crear" asp-route-id="@item.IdBook">
-                            <button
-                              type="button"
-                              id="PopoverCustomT-1"
-                              class="btn btn-primary btn-sm"
-                            >
-                              <i class="pe-7s-note btn-icon-wrapper"></i>
-                            </button>
+                            <div class="d-flex flex-row justify-content-start align-items-center">
+                            @if (@item.Estado)
+                            {
+                              <div data-toggle="tooltip" title="No es posible editar este libro porque se encuentra actualmente en estado Prestado" data-placement="bottom">
+                                <a class="btn btn-sm no-a-decoration" style="pointer-events: none;" disabled asp-controller="Libro" asp-action="Crear" asp-route-id="@item.IdBook">
+                                  <button
+                                      style="pointer-events: none;" 
+                                      disabled
+                                      type="button"
+                                      id="PopoverCustomT-1"
+                                      class="mr-2 btn-icon btn-icon-only btn btn-primary"
+                                      data-toggle="tooltip"
+                                      title="Editar"
+                                      data-placement="bottom"
+                                  >
+                                    <i class="pe-7s-note btn-icon-wrapper"></i>
+                                  </button>
+                                </a>
+                              </div>
+                            }else
+                            {
+                              <a class="btn btn-sm no-a-decoration" asp-controller="Libro" asp-action="Crear" asp-route-id="@item.IdBook">
+                                <button
+                                  type="button"
+                                  id="PopoverCustomT-1"
+                                  class="mr-2 btn-icon btn-icon-only btn btn-primary"
+                                  data-toggle="tooltip"
+                                  title="Editar"
+                                  data-placement="bottom"
+                                >
+                                  <i class="pe-7s-note btn-icon-wrapper"></i>
+                                </button>
                             </a>
+                            }
                             <form asp-controller="Libro" asp-action="Delete" asp-route-id="@item.IdBook" method="post">
-                            <button type="submit" onclick="return confirm(&quot;Confirme eliminación de este libro?&quot;)" class="mr-2 btn-icon btn-icon-only btn btn-outline-danger">
-                              <i class="pe-7s-trash btn-icon-wrapper"> </i>
-                            </button>
+                             @if (@item.Estado)
+                            {
+                              <div data-toggle="tooltip" title="No es posible eliminar este libro porque se encuentra actualmente en estado Prestado" data-placement="bottom">
+                                <button style="pointer-events: none;" disabled type="submit" onclick="return confirm(&quot;Confirme eliminación de este libro?&quot;)" class="mr-2 btn-icon btn-icon-only btn btn-outline-danger">
+                                  <i class="pe-7s-trash btn-icon-wrapper"> </i>
+                                </button>
+                              </div>
+                            }else
+                            {
+                              <button type="submit" data-toggle="tooltip" title="Eliminar" data-placement="bottom" onclick="return confirm(&quot;Confirme eliminación de este libro?&quot;)" class="mr-2 btn-icon btn-icon-only btn btn-outline-danger">
+                                <i class="pe-7s-trash btn-icon-wrapper"> </i>
+                              </button>
+                            }
                             </form>
                             </div>
                           </td>
@@ -199,7 +244,8 @@ else{
                     </table>
                   </div>
                   <div class="d-block text-center card-footer">
-                    <button class="btn-wide btn btn-success">Save</button>
+                    @* <button class="btn-wide btn btn-success">Save</button> *@
+                    @* Paginated section *@
                   </div>
                 </div>
               </div>

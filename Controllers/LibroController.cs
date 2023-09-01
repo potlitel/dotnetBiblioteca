@@ -11,10 +11,36 @@ public class LibroController : Controller
 
     public LibroController(ILibrosService albumesService) => _albumesService = albumesService;
 
-    public IActionResult Index()
+    public IActionResult Index(string sortOrder, string q)
     {
         var result = _albumesService.GetLibrosAsync();
-        return View(result);
+        if (!string.IsNullOrEmpty(q))
+        {
+            result = result.Where(s => s.Nombre.Contains(q)
+                                   || s.ISBN.ToString().Contains(q)).ToList();
+
+            // result = (from item in result
+            //           where item.Nombre.ToList().Contains(item.Id)
+            //           select item).ToList();
+        }
+        // switch (sortOrder)
+        // {
+        //     case "nombre":
+        //         result = (List<Libro>)result.OrderByDescending(s => s.Nombre);
+        //         break;
+        //     // case "category":
+        //     //     result = (List<Libro>)result.OrderBy(s => s.Category);
+        //     //     break;
+        //     case "isbn":
+        //         result = (List<Libro>)result.OrderByDescending(s => s.ISBN);
+        //         break;
+        //         // default:
+        //         //     result = (List<Libro>)result.OrderBy(s => s.Estado);
+        //         //     break;
+        // }
+        if (result.Count == 0 && q != string.Empty)
+            TempData["mensaje"] = string.Format("No se ha encontrado ningún libro con el criterio de búsqueda especificado: {0}.", q);
+        return View(result.ToList());
     }
 
     //Http Get Creates
@@ -72,4 +98,6 @@ public class LibroController : Controller
     {
         ViewBag.Generos = _albumesService.PopulateGeneros();
     }
+
+
 }
