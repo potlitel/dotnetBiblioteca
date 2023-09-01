@@ -10,6 +10,8 @@ namespace BootstrapDashboard.Services
         List<Libro> GetLibrosAsync();
         Libro GetLibroById(int Id);
 
+        Libro GetLibroByISBN(string isbn);
+
         List<SelectListItem> PopulateGeneros();
 
         void AddLibro(Libro libro);
@@ -76,11 +78,17 @@ namespace BootstrapDashboard.Services
 
         /**
          * Description:Function para modificar un libro
+         * https://stackoverflow.com/questions/69269866/cannot-update-existing-entries-in-the-databases
          * @param {any} Librolibro
          * @returns {a        */
         public void UpdateLibro(Libro libro)
         {
-            _context.Libros.Update(libro);
+            var foundBook = _context.Libros.FirstOrDefault(book => book.IdBook == libro.IdBook);
+            foundBook.IdBook = libro.IdBook;
+            foundBook.CategoryId = libro.CategoryId;
+            foundBook.ISBN = libro.ISBN;
+            foundBook.Nombre = libro.Nombre;
+            _context.Libros.Update(foundBook);
             _context.SaveChanges();
         }
 
@@ -98,5 +106,12 @@ namespace BootstrapDashboard.Services
             _context.Libros.Remove(libro);
             _context.SaveChanges();
         }
+
+        /**
+         * Description: Function para buscar un libro por su ISBN
+         * @param {any} stringisbn
+         * @returns {a        
+         */
+        public Libro GetLibroByISBN(string isbn) => _context.Libros.SingleOrDefault(book => book.ISBN == isbn);
     }
 }

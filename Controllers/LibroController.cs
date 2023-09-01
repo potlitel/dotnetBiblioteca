@@ -11,6 +11,12 @@ public class LibroController : Controller
 
     public LibroController(ILibrosService albumesService) => _albumesService = albumesService;
 
+    /**
+     * Description
+     * @param {any} stringsortOrder
+     * @param {any} stringq
+     * @returns {any}
+        */
     public IActionResult Index(string sortOrder, string q)
     {
         var result = _albumesService.GetLibrosAsync();
@@ -44,6 +50,11 @@ public class LibroController : Controller
     }
 
     //Http Get Creates
+    /**
+     * Description
+     * @param {any} intid
+     * @returns {any}
+        */
     public IActionResult Crear(int id)
     {
         PopulateGeneros();
@@ -64,24 +75,80 @@ public class LibroController : Controller
         {
             if (libro.IdBook == 0)
             {
-                _albumesService.AddLibro(libro);
-                TempData["mensaje"] = string.Format("El libro {0} ha sido adicionado correctamente.", libro.Nombre.ToString());
+                return CrearLibro(libro);
             }
             else
             {
-                _albumesService.UpdateLibro(libro);
-                TempData["mensaje"] = string.Format("El libro {0} ha sido modificado correctamente", libro.Nombre.ToString());
+                return EditarLibro(libro);
             }
+        }
+        return View(model: libro);
+    }
 
+    /**
+     * Description
+     * @param {any} Librolibro
+     * @returns {any}
+        */
+    private IActionResult EditarLibro(Libro libroAActualizar)
+    {
+        var libroExistente = _albumesService.GetLibroByISBN(libroAActualizar.ISBN);
+
+        //Si el libro mantiene su mismo ISBN no procedemos con ninguna validación
+        if (libroExistente != null && ((libroExistente.ISBN == libroAActualizar.ISBN && libroExistente.IdBook == libroAActualizar.IdBook) ||
+         (libroExistente.ISBN != libroAActualizar.ISBN && libroExistente.IdBook == libroAActualizar.IdBook)))
+        {
+            _albumesService.UpdateLibro(libroAActualizar);
+            TempData["mensaje"] = string.Format("El libro {0} ha sido modificado correctamente", libroAActualizar.Nombre.ToString());
             return RedirectToAction(nameof(Index));
         }
-        PopulateGeneros();
-        return View(model: libro);
+        else
+        if (libroExistente != null)//Existe un ISBN previamente, no se procede con el proceso de update
+        {
+            TempData["mensaje"] = string.Format("Ya existe un libro '" + "{1}" + "' con el ISBN {0} que acaba de especificar, por verifique e intente nuevamente.", libroAActualizar.ISBN.ToString(), libroExistente.Nombre.ToString());
+            PopulateGeneros();
+            return View(libroAActualizar);
+        }
+        else
+        {
+            _albumesService.UpdateLibro(libroAActualizar);
+            TempData["mensaje"] = string.Format("El libro {0} ha sido modificado correctamente", libroAActualizar.Nombre.ToString());
+            return RedirectToAction(nameof(Index));
+        }
+        return null; // we can change the null to anything else also.
+    }
+
+    /**
+     * Description
+     * @param {any} Librolibro
+     * @returns {any}
+        */
+    private IActionResult CrearLibro(Libro libro)
+    {
+        var item = _albumesService.GetLibroByISBN(libro.ISBN);
+        if (item == null)
+        {
+            _albumesService.AddLibro(libro);
+            TempData["mensaje"] = string.Format("El libro {0} ha sido adicionado correctamente.", libro.Nombre.ToString());
+            // return RedirectToAction(nameof(Crear));
+            return RedirectToAction(nameof(Index));
+        }
+        else
+        {
+            TempData["mensaje"] = string.Format("Ya existe un libro '" + "{1}" + "' con el ISBN {0} que acaba de especificar, por verifique e intente nuevamente.", libro.ISBN.ToString(), item.Nombre.ToString());
+            PopulateGeneros();
+            return View(libro);
+        }
     }
 
     // POST: Libro/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
+    /**
+     * Description
+     * @param {any} intid
+     * @returns {any}
+        */
     public IActionResult DeleteConfirmed(int id)
     {
         _albumesService.DeleteLibro(id);
