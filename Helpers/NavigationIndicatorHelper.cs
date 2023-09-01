@@ -7,7 +7,7 @@ public static class NavigationIndicatorHelper
     {
         try
         {
-            string result = "nav-tabs nav-item.show nav-link";
+            string result = "nav-link active";
             string controllerName = urlHelper.ActionContext.RouteData.Values["controller"].ToString();
             string methodName = urlHelper.ActionContext.RouteData.Values["action"].ToString();
             if (string.IsNullOrEmpty(controllerName)) return null;
