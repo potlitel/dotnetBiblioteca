@@ -11,3 +11,5 @@ This repository represents a realization of the practical exercise of the follow
 [How to Integrate AdminLTE with ASP.NET Core? Detailed](https://codewithmukesh.com/blog/integrating-adminlte-with-aspnet-core/)
 
 [PE7 Icons](https://coderthemes.com/uplon/layouts/vertical/icons-pe7.html)
+
+[Set The Active Class On Bootstrap Nav Links In MVC](https://www.clintmcmahon.com/set-the-active-class-on-bootstrap-nav-links-in-mvc/)
