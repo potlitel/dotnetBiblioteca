@@ -13,12 +13,23 @@ public class BibliotecaContext : DbContext
 
     // public DbSet<Lector> Lectores { get; set; }
 
+    /**
+     * Description: SaveChanges method
+     * @param {any} boolacceptAllChangesOnSuccess
+     * @returns {any}
+        */
     public override int SaveChanges(bool acceptAllChangesOnSuccess)
     {
         OnBeforeSaving();
         return base.SaveChanges(acceptAllChangesOnSuccess);
     }
 
+    /**
+     * Description: SaveChangesAsync method
+     * @param {any} boolacceptAllChangesOnSuccess
+     * @param {any} CancellationTokencancellationToken=default(CancellationToken
+     * @returns {any}
+        */
     public override async Task<int> SaveChangesAsync(
        bool acceptAllChangesOnSuccess,
        CancellationToken cancellationToken = default(CancellationToken)
@@ -29,6 +40,10 @@ public class BibliotecaContext : DbContext
                       cancellationToken));
     }
 
+    /**
+     * Description: OnBeforeSaving method
+     * @returns {any}
+        */
     private void OnBeforeSaving()
     {
         var entries = ChangeTracker.Entries();
@@ -61,12 +76,22 @@ public class BibliotecaContext : DbContext
         }
     }
 
+    /**
+     * Description: OnModelCreating method
+     * @param {any} ModelBuildermodelBuilder
+     * @returns {any}
+        */
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        Guid generoPoliciaco = Guid.NewGuid();
+        // Guid generoPoliciaco = Guid.NewGuid();
         DateTime c = DateTime.UtcNow;
         DateTime u = DateTime.UtcNow;
         base.OnModelCreating(modelBuilder);
+        //Establecemos el campo 'ISBN' como único en todo el sistema
+        modelBuilder.Entity<Libro>()
+        .HasIndex(u => u.ISBN)
+        .IsUnique();
+
         modelBuilder.Entity<Genero>().HasData(
         new Genero
         {
@@ -117,7 +142,7 @@ public class BibliotecaContext : DbContext
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow
         }
-    );
+        );
         //https://www.todostuslibros.com/autor/daniel-chavarria
         modelBuilder.Entity<Libro>().HasData(
             new Libro
