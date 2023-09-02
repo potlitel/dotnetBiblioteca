@@ -14170,12 +14170,12 @@ legend {
   font-family: "font awesome 5 free";
   font-style: normal;
   font-weight: 900;
-  src: url(assets/fonts/fa-solid-900.eot);
+  /* src: url(assets/fonts/fa-solid-900.eot);
   src: url(assets/fonts/fa-solid-900.eot?#iefix) format("embedded-opentype"),
     url(assets/fonts/fa-solid-900.woff2) format("woff2"),
     url(assets/fonts/fa-solid-900.woff) format("woff"),
     url(assets/fonts/fa-solid-900.ttf) format("truetype"),
-    url(assets/fonts/fa-solid-900.svg#fontawesome) format("svg");
+    url(assets/fonts/fa-solid-900.svg#fontawesome) format("svg"); */
 }
 .fa,
 .fas {
@@ -18363,14 +18363,14 @@ legend {
 }
 @font-face {
   font-family: pe-icon-7-stroke;
-  src: url(assets/fonts/Pe-icon-7-stroke.eot);
+  /* src: url(assets/fonts/Pe-icon-7-stroke.eot);
   src: url(assets/fonts/Pe-icon-7-stroke.eot?#iefixd7yf1v)
       format("embedded-opentype"),
     url(assets/fonts/Pe-icon-7-stroke.woff) format("woff"),
     url(assets/fonts/Pe-icon-7-stroke.ttf) format("truetype"),
     url(assets/fonts/Pe-icon-7-stroke.svg#Pe-icon-7-stroke) format("svg");
   font-weight: 400;
-  font-style: normal;
+  font-style: normal; */
 }
 [class^="pe-7s-"],
 [class*=" pe-7s-"] {

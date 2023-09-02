@@ -13,3 +13,7 @@ This repository represents a realization of the practical exercise of the follow
 [PE7 Icons](https://coderthemes.com/uplon/layouts/vertical/icons-pe7.html)
 
 [Set The Active Class On Bootstrap Nav Links In MVC](https://www.clintmcmahon.com/set-the-active-class-on-bootstrap-nav-links-in-mvc/)
+
+[Display a loader every time a page is submitted MVC Asp.net](https://stackoverflow.com/questions/56973776/display-a-loader-every-time-a-page-is-submitted-mvc-asp-net)
+
+[TechTreeMVCWebApplication](https://github.com/GavinLonDigital/TechTreeMVCWebApplication/tree/main)

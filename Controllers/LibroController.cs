@@ -19,6 +19,7 @@ public class LibroController : Controller
         */
     public IActionResult Index(string sortOrder, string q)
     {
+        Thread.Sleep(2000);
         var result = _albumesService.GetLibrosAsync();
         if (!string.IsNullOrEmpty(q))
         {
