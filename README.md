@@ -17,3 +17,7 @@ This repository represents a realization of the practical exercise of the follow
 [Display a loader every time a page is submitted MVC Asp.net](https://stackoverflow.com/questions/56973776/display-a-loader-every-time-a-page-is-submitted-mvc-asp-net)
 
 [TechTreeMVCWebApplication](https://github.com/GavinLonDigital/TechTreeMVCWebApplication/tree/main)
+
+[Pagination in MVC using PagedList](https://www.dotnetxp.com/pagination-in-mvc/)
+
+[How to Translate Mvc4.Paging?](https://stackoverflow.com/questions/43924064/how-to-translate-mvc4-paging)

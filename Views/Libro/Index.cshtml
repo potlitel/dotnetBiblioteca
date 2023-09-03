@@ -1,335 +1,291 @@
-@model IEnumerable<Libro>
+@* @model IEnumerable<Libro> *@
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@* @using X.PagedList.Mvc.Core.Common; *@
+@model X.PagedList.IPagedList<Libro>
+@* @using PagedList.Mvc;
+@using PagedList;
+@using Microsoft.AspNetCore.Mvc; *@
+@* @using System.Web.Mvc; *@
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
-    ViewData["Title"] = "Libros Listado"; Layout =
-        "~/Views/Shared/Dashboardpack/_Layout.cshtml";
-} 
+  ViewData["Title"] = "Libros Listado"; Layout =
+  "~/Views/Shared/Dashboardpack/_Layout.cshtml";
+}
 <script>
-        $(window).on('load', function () {
-          //$('.spinner').css('display', 'none');            
-          /*setTimeout(function () { 
-            $('.spinner').css('display', 'none')
-           }, 2000);*/
-        });
+  $(window).on('load', function () {
+    //$('.spinner').css('display', 'none');            
+    /*setTimeout(function () { 
+      $('.spinner').css('display', 'none')
+     }, 2000);*/
+  });
 </script>
 <style>
-    .center-div {
-        width: 300px;
-        height: 300px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin-left: -150px;
-        margin-top: -150px;
+  .center-div {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
+  }
+
+  .spinner {
+    position: fixed;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: Black;
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+    -moz-opacity: 0.8;
+  }
+
+  .loader {
+    margin: auto;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #15a0ec;
+    border-bottom: 16px solid #15a0ec;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+
+  .inner-div {
+    background-color: white;
+    border-radius: 15px;
+    margin: auto;
+    padding: 2%;
+    width: 150px;
+  }
+
+  @@-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
     }
 
-    .spinner {
-        position: fixed;
-        z-index: 999;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0;
-        background-color: Black;
-        filter: alpha(opacity=60);
-        opacity: 0.6;
-        -moz-opacity: 0.8;
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @@keyframes spin {
+    0% {
+      transform: rotate(0deg);
     }
 
-    .loader {
-        margin: auto;
-        border: 16px solid #f3f3f3;
-        border-radius: 50%;
-        border-top: 16px solid #15a0ec;
-        border-bottom: 16px solid #15a0ec;
-        width: 120px;
-        height: 120px;
-        -webkit-animation: spin 2s linear infinite;
-        animation: spin 2s linear infinite;
+    100% {
+      transform: rotate(360deg);
     }
-
-    .inner-div {
-        background-color: white;
-        border-radius: 15px;
-        margin: auto;
-        padding: 2%;
-        width: 150px;
-    }
-
-    @@-webkit-keyframes spin {
-        0% {
-            -webkit-transform: rotate(0deg);
-        }
-
-        100% {
-            -webkit-transform: rotate(360deg);
-        }
-    }
-
-    @@keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
+  }
 </style>
 
 <div class="app-main__inner">
 
-<div class="app-page-title">
-              <div class="page-title-wrapper">
-                <div class="page-title-heading">
-                  <div class="page-title-icon">
-                    <i class="pe-7s-ticket icon-gradient bg-mean-fruit"> </i>
-                  </div>
-                  <div>
-                    Libros
-                    <div class="page-title-subheading">
-                      This is an example dashboard created using build-in
-                      elements and components.
-                    </div>
-                  </div>
-                </div>
-                <div class="page-title-actions">
-                  
-                  <button
-                    type="button"
-                    data-toggle="tooltip"
-                    title="Crear libro"
-                    data-placement="bottom"
-                    class="btn-shadow mr-3 btn"
-                  >
-                    <a asp-area="" class="btn btn-primary btn-lg" asp-controller="Libro" asp-action="Crear"><i class="fa fa-plus" ></i></a>
-                  </button>
-                  @* <div class="d-inline-block dropdown">
-                    <button
-                      type="button"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                      class="btn-shadow dropdown-toggle btn btn-info"
-                    >
-                      <span class="btn-icon-wrapper pr-2 opacity-7">
-                        <i class="fa fa-business-time fa-w-20"></i>
-                      </span>
-                      Buttons
-                    </button>
-                    <div
-                      tabindex="-1"
-                      role="menu"
-                      aria-hidden="true"
-                      class="dropdown-menu dropdown-menu-right"
-                    >
-                      <ul class="nav flex-column">
-                        <li class="nav-item">
-                          <a href="javascript:void(0);" class="nav-link">
-                            <i class="nav-link-icon lnr-inbox"></i>
-                            <span> Inbox </span>
-                            <div
-                              class="ml-auto badge badge-pill badge-secondary"
-                            >
-                              86
-                            </div>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a href="javascript:void(0);" class="nav-link">
-                            <i class="nav-link-icon lnr-book"></i>
-                            <span> Book </span>
-                            <div class="ml-auto badge badge-pill badge-danger">
-                              5
-                            </div>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a href="javascript:void(0);" class="nav-link">
-                            <i class="nav-link-icon lnr-picture"></i>
-                            <span> Picture </span>
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a
-                            disabled
-                            href="javascript:void(0);"
-                            class="nav-link disabled"
-                          >
-                            <i class="nav-link-icon lnr-file-empty"></i>
-                            <span> File Disabled </span>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div> *@
-                </div></div></div>
-
-                @* @if (Model.Count > 0){
-  <div>Vienen datos</div>
-}
-else{
-  <div>NO vienen datos</div>
-} *@
-
-@if (TempData["mensaje"] != null){
-  <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>Info:</strong> @TempData["mensaje"]
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-}
-
- <div class="spinner">
-        <div class="center-div">
-            <div class="inner-div">
-                <div class="loader"></div>
-            </div>
+  <div class="app-page-title">
+    <div class="page-title-wrapper">
+      <div class="page-title-heading">
+        <div class="page-title-icon">
+          <i class="pe-7s-ticket icon-gradient bg-mean-fruit"> </i>
         </div>
-    </div> 
+        <div>
+          Libros
+          <div class="page-title-subheading">
+            This is an example dashboard created using build-in
+            elements and components.
+          </div>
+        </div>
+      </div>
+      <div class="page-title-actions">
+        <button type="button" data-toggle="tooltip" title="Crear libro" data-placement="bottom"
+          class="btn-shadow mr-3 btn">
+          <a asp-area="" class="btn btn-primary btn-lg" asp-controller="Libro" asp-action="Crear"><i
+              class="fa fa-plus"></i></a>
+        </button>
+      </div>
+    </div>
+  </div>
 
-<div class="row">
-              <div class="col-md-12">
-                <div class="main-card mb-3 card">
-                  <div class="card-header d-flex flex-row justify-content-between align-items-center">
-                    Listado
-                    @* <div class="btn-actions-pane-right">
-                      <div role="group" class="btn-group-sm btn-group">
-                        <button class="active btn btn-focus">Last Week</button>
-                        <button class="btn btn-focus">All Month</button>
-                      </div>
-                    </div> *@
-                    <div class="search-box">
-                      <form class="form-inline">
-                        <div class="form-group">
-                            <input type="text" name="q" value="@ViewBag.searchQuery" class="search-text form-control" placeholder="Localiza tu libro..." />
-                        </div>
-                        <button type="submit" class="btn btn-primary" data-toggle="tooltip" title="Buscar" data-placement="bottom"><i class="fa fa-search" ></i></button>|
-                        <button asp-action="Index" class="btn btn-primary" data-toggle="tooltip" title="Recargar datos de listado" data-placement="bottom"><i class="fa fa-refresh" ></i></button>
-                        @* <a >Back to Full List</a> *@
-                      </form>
-                  </div>
-                  </div>
-                  <div class="table-responsive">
-                    <table
-                      class="align-middle mb-0 table table-borderless table-striped table-hover"
-                    >
-                      <thead>
-                        <tr>
-                          <th class="text-center">#</th>
-                          <th>Nombre</th>
-                          <th class="text-center">Género</th>
-                          <th class="text-center">ISBN</th>
-                          <th class="text-center">Estado</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        @{int i = 1;}
-                        @foreach (var item in Model)
-                        {
-                        <tr>
-                          <td class="text-center text-muted">@i</td>
-                          <td>
-                            <div class="widget-content p-0">
-                              <div class="widget-content-wrapper">
-                                <div class="widget-content-left mr-3">
-                                  <div class="widget-content-left">
-                                    @* <img
-                                      width="40"
-                                      class="rounded-circle"
-                                      src="assets/images/avatars/4.jpg"
-                                      alt=""
-                                    /> *@
-                                  </div>
-                                </div>
-                                <div class="widget-content-left flex2">
-                                  @* <div class="widget-heading">John Doe</div> *@
-                                  <div class="widget-subheading opacity-7">
-                                    @item.Nombre
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="text-center">@item.GeneroNombre</td>
-                          <td class="text-center">@item.ISBN</td>
-                          <td class="text-center">
-                            @if (@item.Estado)
-                            {
-                              <div class="badge badge-warning">Prestado</div> 
-                            }else
-                            {
-                              <div class="badge badge-success">Disponible</div>
-                              }
-                            
-                          </td>
-                          <td class="text-center">
-                            <div class="d-flex flex-row justify-content-start align-items-center">
-                            @if (@item.Estado)
-                            {
-                              <div data-toggle="tooltip" title="No es posible editar este libro porque se encuentra actualmente en estado Prestado" data-placement="bottom">
-                                <a class="btn btn-sm no-a-decoration" style="pointer-events: none;" disabled asp-controller="Libro" asp-action="Crear" asp-route-id="@item.IdBook">
-                                  <button
-                                      style="pointer-events: none;" 
-                                      disabled
-                                      type="button"
-                                      id="PopoverCustomT-1"
-                                      class="mr-2 btn-icon btn-icon-only btn btn-primary"
-                                      data-toggle="tooltip"
-                                      title="Editar"
-                                      data-placement="bottom"
-                                  >
-                                    <i class="pe-7s-note btn-icon-wrapper"></i>
-                                  </button>
-                                </a>
-                              </div>
-                            }else
-                            {
-                              <a class="btn btn-sm no-a-decoration" asp-controller="Libro" asp-action="Crear" asp-route-id="@item.IdBook">
-                                <button
-                                  type="button"
-                                  id="PopoverCustomT-1"
-                                  class="mr-2 btn-icon btn-icon-only btn btn-primary"
-                                  data-toggle="tooltip"
-                                  title="Editar"
-                                  data-placement="bottom"
-                                >
-                                  <i class="pe-7s-note btn-icon-wrapper"></i>
-                                </button>
-                            </a>
-                            }
-                            <form asp-controller="Libro" asp-action="Delete" asp-route-id="@item.IdBook" method="post">
-                             @if (@item.Estado)
-                            {
-                              <div data-toggle="tooltip" title="No es posible eliminar este libro porque se encuentra actualmente en estado Prestado" data-placement="bottom">
-                                <button style="pointer-events: none;" disabled type="submit" onclick="return confirm(&quot;Confirme eliminación de este libro?&quot;)" class="mr-2 btn-icon btn-icon-only btn btn-outline-danger">
-                                  <i class="pe-7s-trash btn-icon-wrapper"> </i>
-                                </button>
-                              </div>
-                            }else
-                            {
-                              <button type="submit" data-toggle="tooltip" title="Eliminar" data-placement="bottom" onclick="return confirm(&quot;Confirme eliminación de este libro?&quot;)" class="mr-2 btn-icon btn-icon-only btn btn-outline-danger">
-                                <i class="pe-7s-trash btn-icon-wrapper"> </i>
-                              </button>
-                            }
-                            </form>
-                            </div>
-                          </td>
-                        </tr>
-                        i++;
-                        }
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="d-block text-center card-footer">
-                    @* <button class="btn-wide btn btn-success">Save</button> *@
-                    @* Paginated section *@
-                  </div>
-                </div>
+  @* @if (Model.Count > 0){
+  <div>Vienen datos</div>
+  }
+  else{
+  <div>NO vienen datos</div>
+  } *@
+
+  @if (TempData["mensaje"] != null)
+  {
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Info:</strong> @TempData["mensaje"]
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  }
+
+  @* <div class="spinner">
+  <div class="center-div">
+  <div class="inner-div">
+  <div class="loader"></div>
+  </div>
+  </div>
+  </div> *@
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="main-card mb-3 card">
+        <div class="card-header d-flex flex-row justify-content-between align-items-center">
+          Listado
+          <div class="search-box">
+            <form class="form-inline">
+              <div class="form-group">
+                <input type="text" name="q" value="@ViewBag.searchQuery" class="search-text form-control"
+                  placeholder="Localiza tu libro..." />
               </div>
-            </div>
+              <button type="submit" class="btn btn-primary" data-toggle="tooltip" title="Buscar"
+                data-placement="bottom"><i class="fa fa-search"></i></button>|
+              <button asp-action="Index" class="btn btn-primary" data-toggle="tooltip" title="Recargar datos de listado"
+                data-placement="bottom"><i class="fa fa-refresh"></i></button>
+            </form>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+            <thead>
+              <tr>
+                <th class="text-center">#</th>
+                <th>Nombre</th>
+                <th class="text-center">Género</th>
+                <th class="text-center">ISBN</th>
+                <th class="text-center">Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              @{
+                int i = 1;
+              }
+              @foreach (var item in Model)
+              {
+                <tr>
+                  <td class="text-center text-muted">@i</td>
+                  <td>
+                    <div class="widget-content p-0">
+                      <div class="widget-content-wrapper">
+                        <div class="widget-content-left mr-3">
+                          <div class="widget-content-left">
+                            @* <img
+                          width="40"
+                          class="rounded-circle"
+                          src="assets/images/avatars/4.jpg"
+                          alt=""
+                          /> *@
+                          </div>
+                        </div>
+                        <div class="widget-content-left flex2">
+                          @* <div class="widget-heading">John Doe</div> *@
+                          <div class="widget-subheading opacity-7">
+                            @item.Nombre
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="text-center">@item.GeneroNombre</td>
+                  <td class="text-center">@item.ISBN</td>
+                  <td class="text-center">
+                    @if (@item.Estado)
+                    {
+                      <div class="badge badge-warning">Prestado</div>
+                    }
+                    else
+                    {
+                      <div class="badge badge-success">Disponible</div>
+                    }
+
+                  </td>
+                  <td class="text-center">
+                    <div class="d-flex flex-row justify-content-start align-items-center">
+                      @if (@item.Estado)
+                      {
+                        <div data-toggle="tooltip"
+                          title="No es posible editar este libro porque se encuentra actualmente en estado Prestado"
+                          data-placement="bottom">
+                          <a class="btn btn-sm no-a-decoration" style="pointer-events: none;" disabled
+                            asp-controller="Libro" asp-action="Crear" asp-route-id="@item.IdBook">
+                            <button style="pointer-events: none;" disabled type="button" id="PopoverCustomT-1"
+                              class="mr-2 btn-icon btn-icon-only btn btn-primary" data-toggle="tooltip" title="Editar"
+                              data-placement="bottom">
+                              <i class="pe-7s-note btn-icon-wrapper"></i>
+                            </button>
+                          </a>
+                        </div>
+                      }
+                      else
+                      {
+                        <a class="btn btn-sm no-a-decoration" asp-controller="Libro" asp-action="Crear"
+                          asp-route-id="@item.IdBook">
+                          <button type="button" id="PopoverCustomT-1" class="mr-2 btn-icon btn-icon-only btn btn-primary"
+                            data-toggle="tooltip" title="Editar" data-placement="bottom">
+                            <i class="pe-7s-note btn-icon-wrapper"></i>
+                          </button>
+                        </a>
+                      }
+                      <form asp-controller="Libro" asp-action="Delete" asp-route-id="@item.IdBook" method="post">
+                        @if (@item.Estado)
+                        {
+                          <div data-toggle="tooltip"
+                            title="No es posible eliminar este libro porque se encuentra actualmente en estado Prestado"
+                            data-placement="bottom">
+                            <button style="pointer-events: none;" disabled type="submit"
+                              onclick="return confirm(&quot;Confirme eliminación de este libro?&quot;)"
+                              class="mr-2 btn-icon btn-icon-only btn btn-outline-danger">
+                              <i class="pe-7s-trash btn-icon-wrapper"> </i>
+                            </button>
+                          </div>
+                        }
+                        else
+                        {
+                          <button type="submit" data-toggle="tooltip" title="Eliminar" data-placement="bottom"
+                            onclick="return confirm(&quot;Confirme eliminación de este libro?&quot;)"
+                            class="mr-2 btn-icon btn-icon-only btn btn-outline-danger">
+                            <i class="pe-7s-trash btn-icon-wrapper"> </i>
+                          </button>
+                        }
+                      </form>
+                    </div>
+                  </td>
+                </tr>
+                i++;
+              }
+            </tbody>
+          </table>
+        </div>
+        <div class="d-block text-center card-footer">
+          @* <button class="btn-wide btn btn-success">Save</button> *@
+          @* Paginated section *@
+          @* Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount *@
+
+          @Html.PagedListPager(Model, page => Url.Action("Index",new { page, sortOrder = ViewBag.CurrentSort,
+          currentFilter = ViewBag.CurrentFilter }),
+
+          new PagedListRenderOptions() {
+          LinkToFirstPageFormat = "<< Primera",
+          LinkToPreviousPageFormat = "< Anterior",
+          LinkToNextPageFormat = "Siguiente >",
+          LinkToLastPageFormat = "Ultima >>",
+          Display = PagedListDisplayMode.IfNeeded,
+          DisplayPageCountAndCurrentLocation = true,
+          PageCountAndCurrentLocationFormat = "Página {0} de {1}.",
+          DisplayItemSliceAndTotal = true,
+          ItemSliceAndTotalFormat = "Libros {0} al {1} de un total de {2}." })
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>
-
-
-

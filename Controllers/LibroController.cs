@@ -2,7 +2,10 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using BootstrapDashboard.Models;
 using BootstrapDashboard.Services;
-
+// using PagedList;
+using X.PagedList;
+using System.Data;
+using System.Net;
 namespace BootstrapDashboard.Controllers;
 
 public class LibroController : Controller
@@ -17,37 +20,25 @@ public class LibroController : Controller
      * @param {any} stringq
      * @returns {any}
         */
-    public IActionResult Index(string sortOrder, string q)
+    public IActionResult Index(string sortOrder, string q, int? page)
     {
         Thread.Sleep(2000);
         var result = _albumesService.GetLibrosAsync();
         if (!string.IsNullOrEmpty(q))
         {
-            result = result.Where(s => s.Nombre.Contains(q)
-                                   || s.ISBN.ToString().Contains(q)).ToList();
-
-            // result = (from item in result
-            //           where item.Nombre.ToList().Contains(item.Id)
-            //           select item).ToList();
+            page = 1;
+            result = result.Where(s => s.Nombre.ToUpper().Contains(q.ToUpper())
+                                   || s.ISBN.ToUpper().ToString().Contains(q.ToUpper())).ToList();
         }
-        // switch (sortOrder)
-        // {
-        //     case "nombre":
-        //         result = (List<Libro>)result.OrderByDescending(s => s.Nombre);
-        //         break;
-        //     // case "category":
-        //     //     result = (List<Libro>)result.OrderBy(s => s.Category);
-        //     //     break;
-        //     case "isbn":
-        //         result = (List<Libro>)result.OrderByDescending(s => s.ISBN);
-        //         break;
-        //         // default:
-        //         //     result = (List<Libro>)result.OrderBy(s => s.Estado);
-        //         //     break;
-        // }
         if (result.Count == 0 && q != string.Empty)
             TempData["mensaje"] = string.Format("No se ha encontrado ningún libro con el criterio de búsqueda especificado: {0}.", q);
-        return View(result.ToList());
+        else
+        if (result.Count == 0 && q == string.Empty)
+            TempData["mensaje"] = "No existen libros para mostrar.";
+
+        int pageSize = 5;
+        int pageNumber = page ?? 1;
+        return View(result.ToPagedList(pageNumber, pageSize));
     }
 
     //Http Get Creates
@@ -72,16 +63,24 @@ public class LibroController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Crear([Bind("IdBook, Nombre,CategoryId,ISBN")] Libro libro)
     {
-        if (ModelState.IsValid)
+        try
         {
-            if (libro.IdBook == 0)
+            if (ModelState.IsValid)
             {
-                return CrearLibro(libro);
+                if (libro.IdBook == 0)
+                {
+                    return CrearLibro(libro);
+                }
+                else
+                {
+                    return EditarLibro(libro);
+                }
             }
-            else
-            {
-                return EditarLibro(libro);
-            }
+        }
+        catch (DataException /* dex */)
+        {
+            //Log the error (uncomment dex variable name and add a line here to write a log.
+            ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
         }
         return View(model: libro);
     }
@@ -93,6 +92,10 @@ public class LibroController : Controller
         */
     private IActionResult EditarLibro(Libro libroAActualizar)
     {
+        // if (libroAActualizar.IdBook == null)
+        // {
+        //     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        // }
         var libroExistente = _albumesService.GetLibroByISBN(libroAActualizar.ISBN);
 
         //Si el libro mantiene su mismo ISBN no procedemos con ninguna validación
@@ -152,8 +155,16 @@ public class LibroController : Controller
         */
     public IActionResult DeleteConfirmed(int id)
     {
-        _albumesService.DeleteLibro(id);
-        TempData["mensaje"] = string.Format("El libro ha sido eliminado correctamente");
+        try
+        {
+            _albumesService.DeleteLibro(id);
+            TempData["mensaje"] = string.Format("El libro ha sido eliminado correctamente");
+        }
+        catch (DataException /* dex */)
+        {
+            //Log the error (uncomment dex variable name and add a line here to write a log.
+            ModelState.AddModelError("", "Unable to delete. Try again, and if the problem persists see your system administrator.");
+        }
         return RedirectToAction(nameof(Index));
     }
 
@@ -164,7 +175,15 @@ public class LibroController : Controller
         */
     public void PopulateGeneros()
     {
-        ViewBag.Generos = _albumesService.PopulateGeneros();
+        try
+        {
+            ViewBag.Generos = _albumesService.PopulateGeneros();
+        }
+        catch (DataException /* dex */)
+        {
+            //Log the error (uncomment dex variable name and add a line here to write a log.
+            ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+        }
     }
 
 
