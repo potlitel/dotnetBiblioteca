@@ -25,3 +25,7 @@ This repository represents a realization of the practical exercise of the follow
 [¿Qué tienes ganas de leer hoy?](https://libros.eco/generos-literarios/)
 
 [Your Randomly Generated Identity](https://www.fakenamegenerator.com/gen-random-sp-sp.php)
+
+[How to add server side validation if email attribute is unique in an ASP .NET Core?](https://stackoverflow.com/questions/74766946/how-to-add-server-side-validation-if-email-attribute-is-unique-in-an-asp-net-co)
+
+[Url.Action: From view to partial view (X.PagedList.Mvc)](https://our.umbraco.com/forum/extending-umbraco-and-using-the-api/88538-xpagedlist-from-view-to-partial-view)
