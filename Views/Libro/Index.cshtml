@@ -1,13 +1,13 @@
 @* @model IEnumerable<Libro> *@
-@using X.PagedList; 
-@using X.PagedList.Mvc.Core;
+@* @using X.PagedList;
+@using X.PagedList.Mvc.Core; *@
 @* @using X.PagedList.Mvc.Core.Common; *@
-@model X.PagedList.IPagedList<Libro>
+@* @model X.PagedList.IPagedList<Libro> *@
 @* @using PagedList.Mvc;
 @using PagedList;
 @using Microsoft.AspNetCore.Mvc; *@
 @* @using System.Web.Mvc; *@
-<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
 @{
   ViewData["Title"] = "Libros Listado"; Layout =
   "~/Views/Shared/Dashboardpack/_Layout.cshtml";
@@ -20,98 +20,98 @@
      }, 2000);*/
   });
 </script>
-<style>
-  .pagination-container {
-    display: flex;
-    flex: 1;
-  }
+@* <style>
+.pagination-container {
+display: flex;
+flex: 1;
+}
 
-  .pagination {
-    display: flex;
-    flex: 1;
-    list-style: none;
-    padding: 0;
-    gap: .625rem;
-  }
+.pagination {
+display: flex;
+flex: 1;
+list-style: none;
+padding: 0;
+gap: .625rem;
+}
 
-  .page-item,
-  .page-link {
-    height: 2rem;
-    width: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.page-item,
+.page-link {
+height: 2rem;
+width: 2rem;
+display: flex;
+justify-content: center;
+align-items: center;
+}
 
-  .PagedList-pageCountAndLocation {
-    justify-content: start;
-    order: -1;
-    flex: 1; // expands the div to max available width
-  }
+.PagedList-pageCountAndLocation {
+justify-content: start;
+order: -1;
+flex: 1; // expands the div to max available width
+}
 
-  .center-div {
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -150px;
-    margin-top: -150px;
-  }
+.center-div {
+width: 300px;
+height: 300px;
+position: absolute;
+left: 50%;
+top: 50%;
+margin-left: -150px;
+margin-top: -150px;
+}
 
-  .spinner {
-    position: fixed;
-    z-index: 999;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-color: Black;
-    filter: alpha(opacity=60);
-    opacity: 0.6;
-    -moz-opacity: 0.8;
-  }
+.spinner {
+position: fixed;
+z-index: 999;
+height: 100%;
+width: 100%;
+top: 0;
+left: 0;
+background-color: Black;
+filter: alpha(opacity=60);
+opacity: 0.6;
+-moz-opacity: 0.8;
+}
 
-  .loader {
-    margin: auto;
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #15a0ec;
-    border-bottom: 16px solid #15a0ec;
-    width: 120px;
-    height: 120px;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-  }
+.loader {
+margin: auto;
+border: 16px solid #f3f3f3;
+border-radius: 50%;
+border-top: 16px solid #15a0ec;
+border-bottom: 16px solid #15a0ec;
+width: 120px;
+height: 120px;
+-webkit-animation: spin 2s linear infinite;
+animation: spin 2s linear infinite;
+}
 
-  .inner-div {
-    background-color: white;
-    border-radius: 15px;
-    margin: auto;
-    padding: 2%;
-    width: 150px;
-  }
+.inner-div {
+background-color: white;
+border-radius: 15px;
+margin: auto;
+padding: 2%;
+width: 150px;
+}
 
-  @@-webkit-keyframes spin {
-    0% {
-      -webkit-transform: rotate(0deg);
-    }
+@@-webkit-keyframes spin {
+0% {
+-webkit-transform: rotate(0deg);
+}
 
-    100% {
-      -webkit-transform: rotate(360deg);
-    }
-  }
+100% {
+-webkit-transform: rotate(360deg);
+}
+}
 
-  @@keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
+@@keyframes spin {
+0% {
+transform: rotate(0deg);
+}
 
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-</style>
+100% {
+transform: rotate(360deg);
+}
+}
+</style> *@
 
 <div class="app-main__inner">
 
@@ -294,14 +294,13 @@
           </table>
         </div>
         <div class="d-block text-center card-footer">
-          @* <button class="btn-wide btn btn-success">Save</button> *@
-          @* Paginated section *@
-          @* Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount *@
-
-          @Html.PagedListPager(Model, page => Url.Action("Index",new { page, sortOrder = ViewBag.CurrentSort,
+          @* @Html.PagedListPager(Model, page => Url.Action("Index",new { page, sortOrder = ViewBag.CurrentSort,
           currentFilter = ViewBag.CurrentFilter }),
           new PagedListRenderOptions(){ LiElementClasses = new string[] { "page-item" },
-          PageClasses = new string[] { "page-link" }})
+          PageClasses = new string[] { "page-link" }}) *@
+          @{
+            await Html.RenderPartialAsync("_PaginationPartialView");
+          }
         </div>
       </div>
     </div>

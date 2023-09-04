@@ -42,17 +42,4 @@ public class Libro : BaseEntity
             return Category == null ? "" : Category.Nombre;
         }
     }
-    // [NotMapped]
-    // public int CurrentPage { get; set; } = 1;
-    // [NotMapped]
-    // public int Count { get; set; }
-    // [NotMapped]
-    // public int PageSize { get; set; } = 10;
-    // [NotMapped]
-    // public int TotalPages => (int)Math.Ceiling(decimal.Divide(Count, PageSize));
-    // [NotMapped]
-    // public bool EnablePrevious => CurrentPage > 1;
-    // [NotMapped]
-    // public bool EnableNext => CurrentPage < TotalPages;
-
 }

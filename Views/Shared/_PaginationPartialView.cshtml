@@ -1,0 +1,12 @@
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@* @model X.PagedList.IPagedList<Libro> *@
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+<div>
+    @Html.PagedListPager((IPagedList)ViewBag.pageListModel, page => Url.Action("Index",new { page, sortOrder =
+    ViewBag.CurrentSort,
+    currentFilter = ViewBag.CurrentFilter }),
+    new PagedListRenderOptions(){ LiElementClasses = new string[] { "page-item" },
+    PageClasses = new string[] { "page-link" }})
+</div>

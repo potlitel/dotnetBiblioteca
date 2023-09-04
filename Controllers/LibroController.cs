@@ -38,6 +38,7 @@ public class LibroController : Controller
 
         int pageSize = 5;
         int pageNumber = page ?? 1;
+        ViewBag.pageListModel = result.ToPagedList(pageNumber, pageSize);
         return View(result.ToPagedList(pageNumber, pageSize));
     }
 
