@@ -1,5 +1,5 @@
 @* @model IEnumerable<Libro> *@
-@using X.PagedList;
+@using X.PagedList; 
 @using X.PagedList.Mvc.Core;
 @* @using X.PagedList.Mvc.Core.Common; *@
 @model X.PagedList.IPagedList<Libro>
@@ -21,6 +21,34 @@
   });
 </script>
 <style>
+  .pagination-container {
+    display: flex;
+    flex: 1;
+  }
+
+  .pagination {
+    display: flex;
+    flex: 1;
+    list-style: none;
+    padding: 0;
+    gap: .625rem;
+  }
+
+  .page-item,
+  .page-link {
+    height: 2rem;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .PagedList-pageCountAndLocation {
+    justify-content: start;
+    order: -1;
+    flex: 1; // expands the div to max available width
+  }
+
   .center-div {
     width: 300px;
     height: 300px;
@@ -272,17 +300,8 @@
 
           @Html.PagedListPager(Model, page => Url.Action("Index",new { page, sortOrder = ViewBag.CurrentSort,
           currentFilter = ViewBag.CurrentFilter }),
-
-          new PagedListRenderOptions() {
-          LinkToFirstPageFormat = "<< Primera",
-          LinkToPreviousPageFormat = "< Anterior",
-          LinkToNextPageFormat = "Siguiente >",
-          LinkToLastPageFormat = "Ultima >>",
-          Display = PagedListDisplayMode.IfNeeded,
-          DisplayPageCountAndCurrentLocation = true,
-          PageCountAndCurrentLocationFormat = "Página {0} de {1}.",
-          DisplayItemSliceAndTotal = true,
-          ItemSliceAndTotalFormat = "Libros {0} al {1} de un total de {2}." })
+          new PagedListRenderOptions(){ LiElementClasses = new string[] { "page-item" },
+          PageClasses = new string[] { "page-link" }})
         </div>
       </div>
     </div>

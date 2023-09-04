@@ -21,3 +21,7 @@ This repository represents a realization of the practical exercise of the follow
 [Pagination in MVC using PagedList](https://www.dotnetxp.com/pagination-in-mvc/)
 
 [How to Translate Mvc4.Paging?](https://stackoverflow.com/questions/43924064/how-to-translate-mvc4-paging)
+
+[¿Qué tienes ganas de leer hoy?](https://libros.eco/generos-literarios/)
+
+[Your Randomly Generated Identity](https://www.fakenamegenerator.com/gen-random-sp-sp.php)

@@ -141,7 +141,211 @@ public class BibliotecaContext : DbContext
             Nombre = "Poesía",
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 8,
+            Nombre = "Clásicos Literarios",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 9,
+            Nombre = "Cómic y Libros Ilustrados",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 10,
+            Nombre = "Cuentos y Relatos",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 11,
+            Nombre = "Fantasía",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 12,
+            Nombre = "Humor",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 13,
+            Nombre = "Infantil",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 14,
+            Nombre = "Juvenil",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 15,
+            Nombre = "Novela Histórica",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 16,
+            Nombre = "Novela Negra y Policiaca",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 17,
+            Nombre = "Novela Romántica",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 18,
+            Nombre = "Terror y Thriller",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 19,
+            Nombre = "Arte",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 20,
+            Nombre = "Autoayuda",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 21,
+            Nombre = "Biografías y Autobiografías",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 22,
+            Nombre = "Cocina y Gastronomía",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 23,
+            Nombre = "Deportes",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 24,
+            Nombre = "Divulgación Científica",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 25,
+            Nombre = "Enciclopedias y Diccionarios",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 26,
+            Nombre = "Filosofía",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 27,
+            Nombre = "Historia",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 28,
+            Nombre = "Idiomas",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 29,
+            Nombre = "Libros de Texto",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 30,
+            Nombre = "Libros Técnicos",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 31,
+            Nombre = "Madres y Padres",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 32,
+            Nombre = "Negocios e Inversiones",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 33,
+            Nombre = "Religión",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 34,
+            Nombre = "Viajes",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 35,
+            Nombre = "Teatro y Dramático",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
+        },
+        new Genero
+        {
+            CategoryId = 36,
+            Nombre = "Lírico",
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow
         }
+
         );
         //https://www.todostuslibros.com/autor/daniel-chavarria
         modelBuilder.Entity<Libro>().HasData(

@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using BootstrapDashboard.Models;
 using BootstrapDashboard.Services;
+using X.PagedList;
 
 namespace BootstrapDashboard.Controllers;
 
@@ -20,9 +21,18 @@ public class GeneroController : Controller
      * Description
      * @returns {any}
         */
-    public IActionResult Index()
+    public IActionResult Index(string? q, int? page)
     {
         var result = _albumesService.GetGenerosAsync();
-        return View(result);
+
+        if (!string.IsNullOrEmpty(q))
+        {
+            page = 1;
+            result = result.Where(s => s.Nombre.ToUpper().Contains(q.ToUpper())).ToList();
+        }
+
+        int pageSize = 5;
+        int pageNumber = page ?? 1;
+        return View(result.ToPagedList(pageNumber, pageSize));
     }
 }
