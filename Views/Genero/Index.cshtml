@@ -11,6 +11,7 @@
 
 <div class="app-main__inner">
 
+  @* Convertir en partial view *@
   <div class="app-page-title">
     <div class="page-title-wrapper">
       <div class="page-title-heading">
@@ -27,23 +28,25 @@
       </div>
     </div>
   </div>
-
-  @* @if (Model.Count > 0){
-  <div>Vienen datos</div>
-  }
-  else{
-  <div>NO vienen datos</div>
-  } *@
-  @* @foreach (var item in Model)
-  {
-  @item.Id
-  } *@
+  @* Convertir en partial view *@
 
   <div class="row">
     <div class="col-md-12">
       <div class="main-card mb-3 card">
-        <div class="card-header">
+        <div class="card-header d-flex flex-row justify-content-between align-items-center">
           Listado
+          <div class="search-box">
+            <form class="form-inline">
+              <div class="form-group">
+                <input type="text" name="q" value="@ViewBag.searchQuery" class="search-text form-control"
+                  placeholder="Localiza tu libro..." />
+              </div>
+              <button type="submit" class="btn btn-primary" data-toggle="tooltip" title="Buscar"
+                data-placement="bottom"><i class="fa fa-search"></i></button>|
+              <button asp-action="Index" class="btn btn-primary" data-toggle="tooltip" title="Recargar datos de listado"
+                data-placement="bottom"><i class="fa fa-refresh"></i></button>
+            </form>
+          </div>
           @* <div class="btn-actions-pane-right">
           <div role="group" class="btn-group-sm btn-group">
           <button class="active btn btn-focus">Last Week</button>

@@ -29,3 +29,5 @@ This repository represents a realization of the practical exercise of the follow
 [How to add server side validation if email attribute is unique in an ASP .NET Core?](https://stackoverflow.com/questions/74766946/how-to-add-server-side-validation-if-email-attribute-is-unique-in-an-asp-net-co)
 
 [Url.Action: From view to partial view (X.PagedList.Mvc)](https://our.umbraco.com/forum/extending-umbraco-and-using-the-api/88538-xpagedlist-from-view-to-partial-view)
+
+[Non-nullable property must contain a non-null value when exiting constructor. Consider declaring the property as nullable](https://stackoverflow.com/questions/67505347/non-nullable-property-must-contain-a-non-null-value-when-exiting-constructor-co)

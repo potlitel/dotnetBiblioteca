@@ -18,5 +18,5 @@ public class Genero : BaseEntity
     [MaxLength(50, ErrorMessage = "El nombre del género no puede exceder los {0} caracteres")]
     [MinLength(4, ErrorMessage = "El nombre del género debe tener al menos {0} caracteres")]
     // [Display(Name = "Género")]
-    public string Nombre { get; set; }
+    public string Nombre { get; set; } = default!;
 }

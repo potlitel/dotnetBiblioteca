@@ -20,8 +20,7 @@ namespace BootstrapDashboard.Services
          * @returns {a        */
         public List<Genero> GetGenerosAsync()
         {
-            List<Genero> generos = new List<Genero>();
-
+            List<Genero> generos;
             try
             {
                 generos = _context.Genero.ToList();

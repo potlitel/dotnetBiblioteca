@@ -120,7 +120,6 @@ public class LibroController : Controller
             TempData["mensaje"] = string.Format("El libro {0} ha sido modificado correctamente", libroAActualizar.Nombre.ToString());
             return RedirectToAction(nameof(Index));
         }
-        return null; // we can change the null to anything else also.
     }
 
     /**

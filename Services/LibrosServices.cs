@@ -8,9 +8,9 @@ namespace BootstrapDashboard.Services
     {
         // Task<List<Libro>> GetLibrosAsync();
         List<Libro> GetLibrosAsync();
-        Libro GetLibroById(int Id);
+        Libro? GetLibroById(int Id);
 
-        Libro GetLibroByISBN(string isbn);
+        Libro? GetLibroByISBN(string isbn);
 
         List<SelectListItem> PopulateGeneros();
 
@@ -53,7 +53,10 @@ namespace BootstrapDashboard.Services
          * Description: Busca un libro por su identificador
          * @param {any} intId
          * @returns {a        */
-        public Libro GetLibroById(int Id) => _context.Libros.Find(keyValues: Id);
+        public Libro? GetLibroById(int Id)
+        {
+            return _context.Libros.Find(keyValues: Id);
+        }
 
         /**
          * Description: Function para listar todo los generos
@@ -83,13 +86,16 @@ namespace BootstrapDashboard.Services
          * @returns {a        */
         public void UpdateLibro(Libro libro)
         {
-            var foundBook = _context.Libros.FirstOrDefault(book => book.IdBook == libro.IdBook);
-            foundBook.IdBook = libro.IdBook;
-            foundBook.CategoryId = libro.CategoryId;
-            foundBook.ISBN = libro.ISBN;
-            foundBook.Nombre = libro.Nombre;
-            _context.Libros.Update(foundBook);
-            _context.SaveChanges();
+            Libro? foundBook = _context.Libros.FirstOrDefault(book => book.IdBook == libro.IdBook);
+            if (foundBook is not null)
+            {
+                foundBook.IdBook = libro.IdBook;
+                foundBook.CategoryId = libro.CategoryId;
+                foundBook.ISBN = libro.ISBN;
+                foundBook.Nombre = libro.Nombre;
+                _context.Libros.Update(foundBook);
+                _context.SaveChanges();
+            }
         }
 
         /**
@@ -100,11 +106,14 @@ namespace BootstrapDashboard.Services
         {
             // if (_context.Libros == null)
             // {
-            //     return Exception("Entity set 'ApplicationDbContext.Libros'  is null.");
+            //     return ArgumentException("Entity set 'ApplicationDbContext.Libros'  is null.");
             // }
-            var libro = _context.Libros.Find(keyValues: Id);
-            _context.Libros.Remove(libro);
-            _context.SaveChanges();
+            Libro? foundBook = _context.Libros.Find(keyValues: Id);
+            if (foundBook is not null)
+            {
+                _context.Libros.Remove(foundBook);
+                _context.SaveChanges();
+            }
         }
 
         /**
@@ -112,6 +121,9 @@ namespace BootstrapDashboard.Services
          * @param {any} stringisbn
          * @returns {a        
          */
-        public Libro GetLibroByISBN(string isbn) => _context.Libros.SingleOrDefault(book => book.ISBN == isbn);
+        public Libro? GetLibroByISBN(string isbn)
+        {
+            return _context.Libros.SingleOrDefault(book => book.ISBN == isbn);
+        }
     }
 }

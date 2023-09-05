@@ -12,7 +12,7 @@ public class Libro : BaseEntity
     public int IdBook { get; set; }
 
     [Required(ErrorMessage = "Nombre de libro es requerido")]
-    public string Nombre { get; set; }
+    public string Nombre { get; set; } = default!;
 
     // [Range(1, int.MaxValue, ErrorMessage = "Por favor seleccione un género.")]
     // [Display(Name = "Género")]
@@ -28,7 +28,7 @@ public class Libro : BaseEntity
     [Required(ErrorMessage = "ISBN es requerido")]
     [MaxLength(20, ErrorMessage = "El ISBN de un libro no puede exceder los {0} caracteres")]
     [MinLength(10, ErrorMessage = "El ISBN de un libro debe tener al menos {0} caracteres")]
-    public string ISBN { get; set; }
+    public string ISBN { get; set; } = default!;
 
     [DefaultValue("false")]
     [Display(Name = "Prestado")]

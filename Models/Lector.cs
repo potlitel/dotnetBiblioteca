@@ -12,15 +12,15 @@ public class Lector : BaseEntity
     public int IdLector { get; set; }
 
     [Required(ErrorMessage = "Nombre de lector es requerido")]
-    public string Nombre { get; set; }
+    public string Nombre { get; set; } = default!;
 
     [Required(ErrorMessage = "Apellidos de lector es requerido")]
-    public string Apellidos { get; set; }
+    public string Apellidos { get; set; } = default!;
 
     [Required(ErrorMessage = "Email de lector es requerido")]
     [EmailAddress(ErrorMessage = "Email inválido")]
     [Remote(action: "IsEmailInUse", controller: "Home")]
-    public string Email { get; set; }
+    public string Email { get; set; } = default!;
 
     [NotMapped]
     public string NombreCompleto
@@ -30,4 +30,7 @@ public class Lector : BaseEntity
             return Nombre + Apellidos;
         }
     }
+
+    [Required(ErrorMessage = "Dirección particular requerida")]
+    public string Direccion { get; set; } = default!;
 }

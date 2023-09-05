@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 namespace BootstrapDashboard.Helpers;
 public static class NavigationIndicatorHelper
 {
-    public static string MakeActiveClass(this IUrlHelper urlHelper, string controller, string action)
+    public static string? MakeActiveClass(this IUrlHelper urlHelper, string controller, string action)
     {
         try
         {
             string result = "nav-link active";
-            string controllerName = urlHelper.ActionContext.RouteData.Values["controller"].ToString();
-            string methodName = urlHelper.ActionContext.RouteData.Values["action"].ToString();
+            string controllerName = urlHelper.ActionContext.RouteData.Values["controller"].ToString()!; 
+            string methodName = urlHelper.ActionContext.RouteData.Values["action"].ToString()!;
             if (string.IsNullOrEmpty(controllerName)) return null;
             if (controllerName.Equals(controller, StringComparison.OrdinalIgnoreCase))
             {
