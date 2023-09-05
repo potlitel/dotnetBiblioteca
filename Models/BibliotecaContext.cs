@@ -10,6 +10,7 @@ public class BibliotecaContext : DbContext
 
     public DbSet<Genero> Genero { get; set; }
     public DbSet<Libro> Libros { get; set; }
+    public DbSet<Lector> Lectores { get; set; }
 
     // public DbSet<Lector> Lectores { get; set; }
 
