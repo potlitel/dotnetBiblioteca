@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BootstrapDashboard.Models;
 
-[Table("libros")]
+[Table("lector")]
 public class Lector : BaseEntity
 {
     [Key]
@@ -33,4 +33,10 @@ public class Lector : BaseEntity
 
     [Required(ErrorMessage = "Dirección particular requerida")]
     public string Direccion { get; set; } = default!;
+
+    [Required(ErrorMessage = "Teléfono requerido")]
+    [DataType(DataType.PhoneNumber)]
+    [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})$",
+                   ErrorMessage = "Entered phone format is not valid.")]
+    public string Telefono { get; set; } = default!;
 }

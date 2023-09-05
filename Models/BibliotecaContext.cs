@@ -345,7 +345,6 @@ public class BibliotecaContext : DbContext
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow
         }
-
         );
         //https://www.todostuslibros.com/autor/daniel-chavarria
         modelBuilder.Entity<Libro>().HasData(
@@ -459,8 +458,285 @@ public class BibliotecaContext : DbContext
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow
             }
-        )
-        ;
+        );
+
+        modelBuilder.Entity<Lector>().HasData(
+            new Lector
+            {
+                IdLector = 1,
+                Nombre = "Anaías",
+                Apellidos = "Casanova Almanza",
+                Email = "AnaiasCasanovaAlmanza@jourrapide.com",
+                Direccion = "Ourense, 25 43141 Vilallonga del Camp",
+                Telefono = "783 962 738",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 2,
+                Nombre = "Pericles",
+                Apellidos = "Castro Montoya",
+                Email = "PericlesCastroMontoya@armyspy.com",
+                Direccion = "Plaza Colón, 55 26100 Torrecilla en Cameros",
+                Telefono = "783 962 730",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 3,
+                Nombre = "Carpo",
+                Apellidos = "Ontiveros Miranda",
+                Email = "CarpoOntiverosMiranda@dayrep.com",
+                Direccion = "Calvo Sotelo, 31 47230 Matapozuelos",
+                Telefono = "783 962 588",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 4,
+                Nombre = "Monserrat ",
+                Apellidos = "Covarrubias Quiñones",
+                Email = "MonserratCovarrubiasQuinones@jourrapide.com",
+                Direccion = "Cruce Casa de Postas, 3 18420 Lanjarón",
+                Telefono = "734 910 062",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 5,
+                Nombre = "Omaro",
+                Apellidos = "Gallardo Suárez",
+                Email = "OmaroGallardoSuarez@dayrep.com",
+                Direccion = "Camiño Ancho, 43 37765 Monleón",
+                Telefono = "748 412 755",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 6,
+                Nombre = "Saúl",
+                Apellidos = "Olivares Escobar",
+                Email = "SaulOlivaresEscobar@jourrapide.com",
+                Direccion = "C/ Hijuela de Lojo, 30 20493 Berrobi",
+                Telefono = "662 479 434",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 7,
+                Nombre = "Tulia",
+                Apellidos = "Barela Méndez",
+                Email = "TuliaBarelaMendez@rhyta.com",
+                Direccion = "Bouciña, 25 43780 Gandesa",
+                Telefono = "681 035 582",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 8,
+                Nombre = "Natividad",
+                Apellidos = "Henríquez Pichardo",
+                Email = "NatividadHenriquezPichardo@teleworm.us",
+                Direccion = "C/ Domingo Beltrán, 54 02250 Abengibre",
+                Telefono = "664 470 154",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 9,
+                Nombre = "Nabor",
+                Apellidos = "Alvarado González",
+                Email = "NaborAlvaradoGonzalez@dayrep.com",
+                Direccion = "C/ Señores Curas, 11 12161 la Torre d'En Besora",
+                Telefono = "633 722 764",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 10,
+                Nombre = "Eleodoro",
+                Apellidos = "Solórzano Maya",
+                Email = "EleodoroSolorzanoMaya@jourrapide.com",
+                Direccion = "Rúa Olmos, 5 37330 Babilafuente",
+                Telefono = "627 022 447",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 11,
+                Nombre = "Yrko",
+                Apellidos = "Toro Robles",
+                Email = "YrkoToroRobles@dayrep.com",
+                Direccion = "El Roqueo, 28 17230 Palamós",
+                Telefono = "775 984 852",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 12,
+                Nombre = "Evelien",
+                Apellidos = "Corral Lara",
+                Email = "EvelienCorralLara@armyspy.com",
+                Direccion = "Padre Caro, 6 13760 Almuradiel",
+                Telefono = "616 556 997",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 13,
+                Nombre = "Fulgencio",
+                Apellidos = "Ontiveros Vigil",
+                Email = "FulgencioOntiverosVigil@teleworm.us",
+                Direccion = "Escuadro, 57 46841 Castelló de Rugat",
+                Telefono = "669 306 461",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 14,
+                Nombre = "Ferdinand",
+                Apellidos = "Espinosa Ledesma",
+                Email = "FerdinandEspinosaLedesma@teleworm.us",
+                Direccion = "Paseo del Atlántico, 76 17500 Ripoll",
+                Telefono = "651 089 265",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 15,
+                Nombre = "Luperco",
+                Apellidos = "Barrientos Sedillo",
+                Email = "LupercoBarrientosSedillo@rhyta.com",
+                Direccion = "Atamaria, 39 36636 Ribadumia",
+                Telefono = "775 279 438",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 16,
+                Nombre = "Helda",
+                Apellidos = "Hernádez Villegas",
+                Email = "HeldaHernadezVillegas@rhyta.com",
+                Direccion = "Constitución, 65 37111 Palacios del Arzobispo",
+                Telefono = "633 662 355",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 17,
+                Nombre = "Elía",
+                Apellidos = "Arreola Olivares",
+                Email = "EliaArreolaOlivares@armyspy.com",
+                Direccion = "C/ Los Herrán, 81 06810 Calamonte",
+                Telefono = "612 597 999",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 18,
+                Nombre = "Eneas",
+                Apellidos = "Vázquez Baca",
+                Email = "EneasVazquezBaca@dayrep.com",
+                Direccion = "Cañadilla, 89 22300 Barbastro",
+                Telefono = "759 793 434",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 19,
+                Nombre = "Abbi",
+                Apellidos = "Rascón Angulo",
+                Email = "AbbiRasconAngulo@jourrapide.com",
+                Direccion = "C/ Benito Guinea, 92 08330 Premià de Mar",
+                Telefono = "674 325 474",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 20,
+                Nombre = "Orieta",
+                Apellidos = "Rivas Espinosa",
+                Email = "OrietaRivasEspinosa@jourrapide.com",
+                Direccion = "Lamas Carbajal, 17 41566 Pedrera",
+                Telefono = "766 258 264",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 21,
+                Nombre = "Marisel",
+                Apellidos = "Banda Alicea",
+                Email = "MariselBandaAlicea@dayrep.com",
+                Direccion = "Camiño Real, 65 48480 Zaratamo",
+                Telefono = "781 296 585",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 22,
+                Nombre = "Prudenciano",
+                Apellidos = "Zamudio Adame",
+                Email = "PrudencianoZamudioAdame@dayrep.com",
+                Direccion = "Cruce Casa de Postas, 22 18430 Torvizcón",
+                Telefono = "722 720 072",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 23,
+                Nombre = "Amalio",
+                Apellidos = "Vasquez Solano",
+                Email = "AmalioVasquezSolano@dayrep.com",
+                Direccion = "Atamaria, 2 36780 A Guarda",
+                Telefono = "722 801 512",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 24,
+                Nombre = "Zahir",
+                Apellidos = "Valverde Elizondo",
+                Email = "ZahirValverdeElizondo@armyspy.com",
+                Direccion = "Rúa de San Pedro, 79 37795 Berrocal de Salvatierra",
+                Telefono = "606 229 390",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new Lector
+            {
+                IdLector = 25,
+                Nombre = "Liberto",
+                Apellidos = "Saldana Pulido",
+                Email = "LibertoSaldanaPulido@teleworm.us",
+                Direccion = "Carretera del Muelle, 67 12318 Portell de Morella",
+                Telefono = "651 019 733",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            }
+        );
         // modelBuilder.Entity<Course>().ToTable("Course");
         // modelBuilder.Entity<Enrollment>().ToTable("Enrollment");
         // modelBuilder.Entity<Student>().ToTable("Student");
