@@ -29,6 +29,15 @@
     </div>
   </div>
   @* Convertir en partial view *@
+  @if (TempData["mensaje"] != null)
+  {
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Info:</strong> @TempData["mensaje"]
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  }
 
   <div class="row">
     <div class="col-md-12">
@@ -106,10 +115,13 @@
           </table>
         </div>
         <div class="d-block text-center card-footer">
-          @Html.PagedListPager(Model, page => Url.Action("Index",new { page, sortOrder = ViewBag.CurrentSort,
+          @* @Html.PagedListPager(Model, page => Url.Action("Index",new { page, sortOrder = ViewBag.CurrentSort,
           currentFilter = ViewBag.CurrentFilter }),
           new PagedListRenderOptions(){ LiElementClasses = new string[] { "page-item" },
-          PageClasses = new string[] { "page-link" }})
+          PageClasses = new string[] { "page-link" }}) *@
+          @{
+            await Html.RenderPartialAsync("_PaginationPartialView");
+          }
         </div>
       </div>
     </div>

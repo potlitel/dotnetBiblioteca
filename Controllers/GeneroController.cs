@@ -19,7 +19,7 @@ public class GeneroController : Controller
 
     /**
      * Description
-     * @returns {any}
+     * @returns {any} 
         */
     public IActionResult Index(string? q, int? page)
     {
@@ -31,8 +31,15 @@ public class GeneroController : Controller
             result = result.Where(s => s.Nombre.ToUpper().Contains(q.ToUpper())).ToList();
         }
 
+        if (result.Count == 0 && q != string.Empty)
+            TempData["mensaje"] = string.Format("No se ha encontrado ningún género con el criterio de búsqueda especificado: {0}.", q);
+        else
+        if (result.Count == 0 && q == string.Empty)
+            TempData["mensaje"] = "No existen géneros para mostrar.";
+
         int pageSize = 5;
         int pageNumber = page ?? 1;
+        ViewBag.pageListModel = result.ToPagedList(pageNumber, pageSize);
         return View(result.ToPagedList(pageNumber, pageSize));
     }
 }
