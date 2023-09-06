@@ -35,3 +35,5 @@ This repository represents a realization of the practical exercise of the follow
 [Admin LTE Theme Integrate in ASP.NET MVC Application⚡Admin LTE⚡Admin Template](https://www.youtube.com/watch?v=3Y5U732Rlpc)
 
 [Dashboard Application With ASP.NET MVC 5 And jQuery](https://www.c-sharpcorner.com/article/dashboard-application-with-asp-net-mvc-5-and-jquery/)
+
+[.NET: Entity Framework Async Query to Count Number of Rows](https://www.codelocker.net/p/338/dotnet-entity-framework-async-query-to-count-number-of-rows/)

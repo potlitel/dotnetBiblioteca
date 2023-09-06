@@ -36,6 +36,22 @@ public class HomeController : Controller
         return View();
     }
 
+    // public ActionResult OrdersByCountry()
+    // {
+    //     DashboardContext _context = new DashboardContext();
+
+    //     var ordersByCountry = (from o in _context.OrderSet
+    //                            group o by o.Customer.CustomerCountry into g
+    //                            orderby g.Count() descending
+    //                            select new
+    //                            {
+    //                                Country = g.Key,
+    //                                CountOrders = g.Count()
+    //                            }).ToList();
+
+    //     return Json(new { result = ordersByCountry }, JsonRequestBehavior.AllowGet);
+    // }
+
     public IActionResult Privacy()
     {
         return View();
