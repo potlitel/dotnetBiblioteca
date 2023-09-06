@@ -12,6 +12,8 @@ namespace BootstrapDashboard.Services
 
         Task<Lector?> GetLectorByName(string name);
 
+        Task<int> GetLectoresCount();
+
         void AddLector(Lector lector);
 
         void UpdateLector(Lector lector);
@@ -105,6 +107,15 @@ namespace BootstrapDashboard.Services
         public async Task<Lector?> GetLectorByName(string name)
         {
             return await _context.Lectores.SingleOrDefaultAsync(book => book.Nombre == name);
+        }
+
+        public async Task<int> GetLectoresCount()
+        {
+            var query = from lector in _context.Lectores
+
+                        select lector.IdLector;
+
+            return await query.CountAsync();
         }
     }
 }
