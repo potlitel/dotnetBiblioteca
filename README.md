@@ -31,3 +31,7 @@ This repository represents a realization of the practical exercise of the follow
 [Url.Action: From view to partial view (X.PagedList.Mvc)](https://our.umbraco.com/forum/extending-umbraco-and-using-the-api/88538-xpagedlist-from-view-to-partial-view)
 
 [Non-nullable property must contain a non-null value when exiting constructor. Consider declaring the property as nullable](https://stackoverflow.com/questions/67505347/non-nullable-property-must-contain-a-non-null-value-when-exiting-constructor-co)
+
+[Admin LTE Theme Integrate in ASP.NET MVC Application⚡Admin LTE⚡Admin Template](https://www.youtube.com/watch?v=3Y5U732Rlpc)
+
+[Dashboard Application With ASP.NET MVC 5 And jQuery](https://www.c-sharpcorner.com/article/dashboard-application-with-asp-net-mvc-5-and-jquery/)
