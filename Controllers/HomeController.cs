@@ -12,19 +12,27 @@ public class HomeController : Controller
 
     private readonly ILibrosService _librosService;
 
-    public HomeController(ILogger<HomeController> logger, IGenerosService generosService, ILibrosService librosService)
+    private readonly ILectoresService _lectoresService;
+
+    public HomeController(ILogger<HomeController> logger,
+                          IGenerosService generosService,
+                          ILibrosService librosService,
+                          ILectoresService lectoresService)
     {
         _logger = logger;
         _generosService = generosService;
         _librosService = librosService;
+        _lectoresService = lectoresService;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
         var countGeneros = _generosService.GetGenerosAsync().Count();
         var countLibros = _librosService.GetLibrosAsync().Count();
+        var countLectores = await _lectoresService.GetLectoresCount();
         ViewBag.Generos = countGeneros;
         ViewBag.Libros = countLibros;
+        ViewBag.Lectores = countLectores;
         return View();
     }
 
