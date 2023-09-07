@@ -14,11 +14,11 @@ namespace BootstrapDashboard.Services
 
         Task<int> GetLectoresCount();
 
-        void AddLector(Lector lector);
+        Task AddLector(Lector lector);
 
-        void UpdateLector(Lector lector);
+        Task UpdateLector(Lector lector);
 
-        void DeleteLectorAsync(int Id);
+        Task DeleteLectorAsync(int Id);
     }
 
     public class LectorService : ILectoresService
@@ -59,7 +59,7 @@ namespace BootstrapDashboard.Services
          * Description: Function para adicionar un lector
          * @param {any} Lector lector
          * @returns {a        */
-        public async void AddLector(Lector lector)
+        public async Task AddLector(Lector lector)
         {
             _context.Lectores.Add(lector);
             await _context.SaveChangesAsync();
@@ -70,7 +70,7 @@ namespace BootstrapDashboard.Services
          * https://stackoverflow.com/questions/69269866/cannot-update-existing-entries-in-the-databases
          * @param {any} Librolibro
          * @returns {a        */
-        public async void UpdateLector(Lector lector)
+        public async Task UpdateLector(Lector lector)
         {
             Lector? foundLector = await _context.Lectores.FirstOrDefaultAsync(book => book.IdLector == lector.IdLector);
             if (foundLector is not null)
@@ -81,7 +81,7 @@ namespace BootstrapDashboard.Services
                 foundLector.Email = lector.Email;
                 foundLector.Telefono = lector.Telefono;
                 _context.Lectores.Update(foundLector);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
         }
 
@@ -89,13 +89,13 @@ namespace BootstrapDashboard.Services
          * Description: Function para eliminar un lector
          * @param {any} intId
          * @returns {a        */
-        public async void DeleteLectorAsync(int Id)
+        public async Task DeleteLectorAsync(int Id)
         {
             Lector? foundLector = await _context.Lectores.FindAsync(keyValues: Id);
             if (foundLector is not null)
             {
                 _context.Lectores.Remove(foundLector);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
         }
 

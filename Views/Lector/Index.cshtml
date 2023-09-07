@@ -20,6 +20,13 @@
           </div>
         </div>
       </div>
+      <div class="page-title-actions">
+        <button type="button" data-toggle="tooltip" title="Crear lector" data-placement="bottom"
+          class="btn-shadow mr-3 btn">
+          <a asp-area="" class="btn btn-primary btn-lg" asp-controller="Lector" asp-action="Crear"><i
+              class="fa fa-plus"></i></a>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -107,14 +114,14 @@
                   <td class="text-center">@item.Direccion</td>
                   <td class="text-center">
                     <div class="d-flex flex-row justify-content-start align-items-center">
-                      <a class="btn btn-sm no-a-decoration" asp-controller="Libro" asp-action="Crear"
+                      <a class="btn btn-sm no-a-decoration" asp-controller="Lector" asp-action="Crear"
                         asp-route-id="@item.IdLector">
                         <button type="button" id="PopoverCustomT-1" class="mr-2 btn-icon btn-icon-only btn btn-primary"
                           data-toggle="tooltip" title="Editar" data-placement="bottom">
                           <i class="pe-7s-note btn-icon-wrapper"></i>
                         </button>
                       </a>
-                      <form asp-controller="Libro" asp-action="Delete" asp-route-id="@item.IdLector" method="post">
+                      <form asp-controller="Lector" asp-action="Delete" asp-route-id="@item.IdLector" method="post">
                         @* @if (@item.Estado)
                       {
                       <div data-toggle="tooltip"
@@ -135,6 +142,11 @@
                       <i class="pe-7s-trash btn-icon-wrapper"> </i>
                       </button>
                       } *@
+                        <button type="submit" data-toggle="tooltip" title="Eliminar" data-placement="bottom"
+                          onclick="return confirm(&quot;Confirme eliminación de este lector?&quot;)"
+                          class="mr-2 btn-icon btn-icon-only btn btn-outline-danger">
+                          <i class="pe-7s-trash btn-icon-wrapper"> </i>
+                        </button>
                       </form>
                     </div>
                   </td>

@@ -26,8 +26,8 @@ public class Libro : BaseEntity
     public Genero? Category { get; set; }
 
     [Required(ErrorMessage = "ISBN es requerido")]
-    [MaxLength(20, ErrorMessage = "El ISBN de un libro no puede exceder los {0} caracteres")]
-    [MinLength(10, ErrorMessage = "El ISBN de un libro debe tener al menos {0} caracteres")]
+    [MaxLength(20, ErrorMessage = "El ISBN de un libro no puede exceder los 10 caracteres")]
+    [MinLength(10, ErrorMessage = "El ISBN de un libro debe tener al menos 10 caracteres")]
     public string ISBN { get; set; } = default!;
 
     [DefaultValue("false")]
