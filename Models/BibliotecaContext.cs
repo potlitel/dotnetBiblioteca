@@ -12,6 +12,8 @@ public class BibliotecaContext : DbContext
     public DbSet<Libro> Libros { get; set; }
     public DbSet<Lector> Lectores { get; set; }
 
+    public DbSet<Lector> Prestamos { get; set; }
+
     // public DbSet<Lector> Lectores { get; set; }
 
     /**
@@ -736,6 +738,25 @@ public class BibliotecaContext : DbContext
                 Telefono = "651 019 733",
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow
+            }
+        );
+        modelBuilder.Entity<Prestamo>().HasData(
+            new Prestamo
+            {
+                Id = 1,
+                LectorId = 23,
+                LibroId = 5,
+            },
+            new Prestamo
+            {
+                Id = 2,
+                LectorId = 19,
+                LibroId = 6,
+            }, new Prestamo
+            {
+                Id = 3,
+                LectorId = 7,
+                LibroId = 7,
             }
         );
         // modelBuilder.Entity<Course>().ToTable("Course");

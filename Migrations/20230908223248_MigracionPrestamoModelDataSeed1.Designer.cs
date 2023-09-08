@@ -4,6 +4,7 @@ using BootstrapDashboard.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BootstrapDashboard.Migrations
 {
     [DbContext(typeof(BibliotecaContext))]
-    partial class BibliotecaContextModelSnapshot : ModelSnapshot
+    [Migration("20230908223248_MigracionPrestamoModelDataSeed1")]
+    partial class MigracionPrestamoModelDataSeed1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,254 +54,254 @@ namespace BootstrapDashboard.Migrations
                         new
                         {
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(5766),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 209, DateTimeKind.Utc).AddTicks(8633),
                             Nombre = "Novela Policiaca",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(5769)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 209, DateTimeKind.Utc).AddTicks(8636)
                         },
                         new
                         {
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7554),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(401),
                             Nombre = "Romántico",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7555)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(402)
                         },
                         new
                         {
                             CategoryId = 3,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7556),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(403),
                             Nombre = "Erótico",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7556)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(404)
                         },
                         new
                         {
                             CategoryId = 4,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7557),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(405),
                             Nombre = "Ficción",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7558)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(405)
                         },
                         new
                         {
                             CategoryId = 5,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7559),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(406),
                             Nombre = "Biografía",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7559)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(406)
                         },
                         new
                         {
                             CategoryId = 6,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7560),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(407),
                             Nombre = "Ensayo",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7561)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(408)
                         },
                         new
                         {
                             CategoryId = 7,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7562),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(408),
                             Nombre = "Poesía",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7562)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(409)
                         },
                         new
                         {
                             CategoryId = 8,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7563),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(410),
                             Nombre = "Clásicos Literarios",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7564)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(410)
                         },
                         new
                         {
                             CategoryId = 9,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7565),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(411),
                             Nombre = "Cómic y Libros Ilustrados",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7565)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(411)
                         },
                         new
                         {
                             CategoryId = 10,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7567),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(412),
                             Nombre = "Cuentos y Relatos",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7567)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(413)
                         },
                         new
                         {
                             CategoryId = 11,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7568),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(414),
                             Nombre = "Fantasía",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7569)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(414)
                         },
                         new
                         {
                             CategoryId = 12,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7570),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(415),
                             Nombre = "Humor",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7570)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(415)
                         },
                         new
                         {
                             CategoryId = 13,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7571),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(416),
                             Nombre = "Infantil",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7572)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(417)
                         },
                         new
                         {
                             CategoryId = 14,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7573),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(417),
                             Nombre = "Juvenil",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7573)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(418)
                         },
                         new
                         {
                             CategoryId = 15,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7574),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(419),
                             Nombre = "Novela Histórica",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7574)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(419)
                         },
                         new
                         {
                             CategoryId = 16,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7575),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(420),
                             Nombre = "Novela Negra y Policiaca",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7576)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(421)
                         },
                         new
                         {
                             CategoryId = 17,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7577),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(421),
                             Nombre = "Novela Romántica",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7577)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(422)
                         },
                         new
                         {
                             CategoryId = 18,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7578),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(423),
                             Nombre = "Terror y Thriller",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7578)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(423)
                         },
                         new
                         {
                             CategoryId = 19,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7579),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(424),
                             Nombre = "Arte",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7580)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(425)
                         },
                         new
                         {
                             CategoryId = 20,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7581),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(425),
                             Nombre = "Autoayuda",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7581)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(426)
                         },
                         new
                         {
                             CategoryId = 21,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7582),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(427),
                             Nombre = "Biografías y Autobiografías",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7582)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(427)
                         },
                         new
                         {
                             CategoryId = 22,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7583),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(428),
                             Nombre = "Cocina y Gastronomía",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7584)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(428)
                         },
                         new
                         {
                             CategoryId = 23,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7585),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(429),
                             Nombre = "Deportes",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7585)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(430)
                         },
                         new
                         {
                             CategoryId = 24,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7586),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(431),
                             Nombre = "Divulgación Científica",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7586)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(431)
                         },
                         new
                         {
                             CategoryId = 25,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7587),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(432),
                             Nombre = "Enciclopedias y Diccionarios",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7588)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(432)
                         },
                         new
                         {
                             CategoryId = 26,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7589),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(433),
                             Nombre = "Filosofía",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7589)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(434)
                         },
                         new
                         {
                             CategoryId = 27,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7590),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(435),
                             Nombre = "Historia",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7591)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(435)
                         },
                         new
                         {
                             CategoryId = 28,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7592),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(436),
                             Nombre = "Idiomas",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7592)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(436)
                         },
                         new
                         {
                             CategoryId = 29,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7593),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(437),
                             Nombre = "Libros de Texto",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7594)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(438)
                         },
                         new
                         {
                             CategoryId = 30,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7594),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(439),
                             Nombre = "Libros Técnicos",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7595)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(439)
                         },
                         new
                         {
                             CategoryId = 31,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7596),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(440),
                             Nombre = "Madres y Padres",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7596)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(440)
                         },
                         new
                         {
                             CategoryId = 32,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7597),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(441),
                             Nombre = "Negocios e Inversiones",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7597)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(442)
                         },
                         new
                         {
                             CategoryId = 33,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7598),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(443),
                             Nombre = "Religión",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7599)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(443)
                         },
                         new
                         {
                             CategoryId = 34,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7600),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(444),
                             Nombre = "Viajes",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7600)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(445)
                         },
                         new
                         {
                             CategoryId = 35,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7601),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(445),
                             Nombre = "Teatro y Dramático",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7601)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(446)
                         },
                         new
                         {
                             CategoryId = 36,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7602),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(447),
                             Nombre = "Lírico",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7603)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(447)
                         });
                 });
 
@@ -347,276 +350,276 @@ namespace BootstrapDashboard.Migrations
                         {
                             IdLector = 1,
                             Apellidos = "Casanova Almanza",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7765),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(603),
                             Direccion = "Ourense, 25 43141 Vilallonga del Camp",
                             Email = "AnaiasCasanovaAlmanza@jourrapide.com",
                             Nombre = "Anaías",
                             Telefono = "783 962 738",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7765)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(603)
                         },
                         new
                         {
                             IdLector = 2,
                             Apellidos = "Castro Montoya",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7767),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(606),
                             Direccion = "Plaza Colón, 55 26100 Torrecilla en Cameros",
                             Email = "PericlesCastroMontoya@armyspy.com",
                             Nombre = "Pericles",
                             Telefono = "783 962 730",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7767)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(606)
                         },
                         new
                         {
                             IdLector = 3,
                             Apellidos = "Ontiveros Miranda",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7769),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(608),
                             Direccion = "Calvo Sotelo, 31 47230 Matapozuelos",
                             Email = "CarpoOntiverosMiranda@dayrep.com",
                             Nombre = "Carpo",
                             Telefono = "783 962 588",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7769)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(608)
                         },
                         new
                         {
                             IdLector = 4,
                             Apellidos = "Covarrubias Quiñones",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7771),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(610),
                             Direccion = "Cruce Casa de Postas, 3 18420 Lanjarón",
                             Email = "MonserratCovarrubiasQuinones@jourrapide.com",
                             Nombre = "Monserrat ",
                             Telefono = "734 910 062",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7771)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(610)
                         },
                         new
                         {
                             IdLector = 5,
                             Apellidos = "Gallardo Suárez",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7773),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(612),
                             Direccion = "Camiño Ancho, 43 37765 Monleón",
                             Email = "OmaroGallardoSuarez@dayrep.com",
                             Nombre = "Omaro",
                             Telefono = "748 412 755",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7773)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(613)
                         },
                         new
                         {
                             IdLector = 6,
                             Apellidos = "Olivares Escobar",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7774),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(614),
                             Direccion = "C/ Hijuela de Lojo, 30 20493 Berrobi",
                             Email = "SaulOlivaresEscobar@jourrapide.com",
                             Nombre = "Saúl",
                             Telefono = "662 479 434",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7775)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(614)
                         },
                         new
                         {
                             IdLector = 7,
                             Apellidos = "Barela Méndez",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7776),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(616),
                             Direccion = "Bouciña, 25 43780 Gandesa",
                             Email = "TuliaBarelaMendez@rhyta.com",
                             Nombre = "Tulia",
                             Telefono = "681 035 582",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7777)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(616)
                         },
                         new
                         {
                             IdLector = 8,
                             Apellidos = "Henríquez Pichardo",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7778),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(712),
                             Direccion = "C/ Domingo Beltrán, 54 02250 Abengibre",
                             Email = "NatividadHenriquezPichardo@teleworm.us",
                             Nombre = "Natividad",
                             Telefono = "664 470 154",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7778)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(713)
                         },
                         new
                         {
                             IdLector = 9,
                             Apellidos = "Alvarado González",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7780),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(715),
                             Direccion = "C/ Señores Curas, 11 12161 la Torre d'En Besora",
                             Email = "NaborAlvaradoGonzalez@dayrep.com",
                             Nombre = "Nabor",
                             Telefono = "633 722 764",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7780)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(715)
                         },
                         new
                         {
                             IdLector = 10,
                             Apellidos = "Solórzano Maya",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7782),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(716),
                             Direccion = "Rúa Olmos, 5 37330 Babilafuente",
                             Email = "EleodoroSolorzanoMaya@jourrapide.com",
                             Nombre = "Eleodoro",
                             Telefono = "627 022 447",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7782)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(717)
                         },
                         new
                         {
                             IdLector = 11,
                             Apellidos = "Toro Robles",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7783),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(718),
                             Direccion = "El Roqueo, 28 17230 Palamós",
                             Email = "YrkoToroRobles@dayrep.com",
                             Nombre = "Yrko",
                             Telefono = "775 984 852",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7784)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(718)
                         },
                         new
                         {
                             IdLector = 12,
                             Apellidos = "Corral Lara",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7785),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(720),
                             Direccion = "Padre Caro, 6 13760 Almuradiel",
                             Email = "EvelienCorralLara@armyspy.com",
                             Nombre = "Evelien",
                             Telefono = "616 556 997",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7786)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(720)
                         },
                         new
                         {
                             IdLector = 13,
                             Apellidos = "Ontiveros Vigil",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7787),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(722),
                             Direccion = "Escuadro, 57 46841 Castelló de Rugat",
                             Email = "FulgencioOntiverosVigil@teleworm.us",
                             Nombre = "Fulgencio",
                             Telefono = "669 306 461",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7787)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(722)
                         },
                         new
                         {
                             IdLector = 14,
                             Apellidos = "Espinosa Ledesma",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7789),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(724),
                             Direccion = "Paseo del Atlántico, 76 17500 Ripoll",
                             Email = "FerdinandEspinosaLedesma@teleworm.us",
                             Nombre = "Ferdinand",
                             Telefono = "651 089 265",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7789)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(724)
                         },
                         new
                         {
                             IdLector = 15,
                             Apellidos = "Barrientos Sedillo",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7791),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(725),
                             Direccion = "Atamaria, 39 36636 Ribadumia",
                             Email = "LupercoBarrientosSedillo@rhyta.com",
                             Nombre = "Luperco",
                             Telefono = "775 279 438",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7791)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(726)
                         },
                         new
                         {
                             IdLector = 16,
                             Apellidos = "Hernádez Villegas",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7792),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(727),
                             Direccion = "Constitución, 65 37111 Palacios del Arzobispo",
                             Email = "HeldaHernadezVillegas@rhyta.com",
                             Nombre = "Helda",
                             Telefono = "633 662 355",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7793)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(728)
                         },
                         new
                         {
                             IdLector = 17,
                             Apellidos = "Arreola Olivares",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7794),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(730),
                             Direccion = "C/ Los Herrán, 81 06810 Calamonte",
                             Email = "EliaArreolaOlivares@armyspy.com",
                             Nombre = "Elía",
                             Telefono = "612 597 999",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7794)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(730)
                         },
                         new
                         {
                             IdLector = 18,
                             Apellidos = "Vázquez Baca",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7796),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(732),
                             Direccion = "Cañadilla, 89 22300 Barbastro",
                             Email = "EneasVazquezBaca@dayrep.com",
                             Nombre = "Eneas",
                             Telefono = "759 793 434",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7796)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(732)
                         },
                         new
                         {
                             IdLector = 19,
                             Apellidos = "Rascón Angulo",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7797),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(733),
                             Direccion = "C/ Benito Guinea, 92 08330 Premià de Mar",
                             Email = "AbbiRasconAngulo@jourrapide.com",
                             Nombre = "Abbi",
                             Telefono = "674 325 474",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7798)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(734)
                         },
                         new
                         {
                             IdLector = 20,
                             Apellidos = "Rivas Espinosa",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7799),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(735),
                             Direccion = "Lamas Carbajal, 17 41566 Pedrera",
                             Email = "OrietaRivasEspinosa@jourrapide.com",
                             Nombre = "Orieta",
                             Telefono = "766 258 264",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7800)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(736)
                         },
                         new
                         {
                             IdLector = 21,
                             Apellidos = "Banda Alicea",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7801),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(737),
                             Direccion = "Camiño Real, 65 48480 Zaratamo",
                             Email = "MariselBandaAlicea@dayrep.com",
                             Nombre = "Marisel",
                             Telefono = "781 296 585",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7801)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(737)
                         },
                         new
                         {
                             IdLector = 22,
                             Apellidos = "Zamudio Adame",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7803),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(739),
                             Direccion = "Cruce Casa de Postas, 22 18430 Torvizcón",
                             Email = "PrudencianoZamudioAdame@dayrep.com",
                             Nombre = "Prudenciano",
                             Telefono = "722 720 072",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7803)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(739)
                         },
                         new
                         {
                             IdLector = 23,
                             Apellidos = "Vasquez Solano",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7805),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(741),
                             Direccion = "Atamaria, 2 36780 A Guarda",
                             Email = "AmalioVasquezSolano@dayrep.com",
                             Nombre = "Amalio",
                             Telefono = "722 801 512",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7805)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(741)
                         },
                         new
                         {
                             IdLector = 24,
                             Apellidos = "Valverde Elizondo",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7848),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(742),
                             Direccion = "Rúa de San Pedro, 79 37795 Berrocal de Salvatierra",
                             Email = "ZahirValverdeElizondo@armyspy.com",
                             Nombre = "Zahir",
                             Telefono = "606 229 390",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7848)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(743)
                         },
                         new
                         {
                             IdLector = 25,
                             Apellidos = "Saldana Pulido",
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7850),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(744),
                             Direccion = "Carretera del Muelle, 67 12318 Portell de Morella",
                             Email = "LibertoSaldanaPulido@teleworm.us",
                             Nombre = "Liberto",
                             Telefono = "651 019 733",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7850)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(745)
                         });
                 });
 
@@ -665,111 +668,111 @@ namespace BootstrapDashboard.Migrations
                         {
                             IdBook = 1,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7722),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(561),
                             Estado = false,
                             ISBN = "978-84-8136-542-9",
                             Nombre = "Una pica en Flandes",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7722)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(562)
                         },
                         new
                         {
                             IdBook = 2,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7724),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(564),
                             Estado = false,
                             ISBN = "978-84-15313-05-2",
                             Nombre = "Allá ellos",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7725)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(565)
                         },
                         new
                         {
                             IdBook = 3,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7726),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(566),
                             Estado = false,
                             ISBN = "978-84-15313-59-5",
                             Nombre = "Adiós muchachos",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7727)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(566)
                         },
                         new
                         {
                             IdBook = 4,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7728),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(568),
                             Estado = false,
                             ISBN = "978-84-7884-546-0",
                             Nombre = "Juguete nuevo",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7728)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(568)
                         },
                         new
                         {
                             IdBook = 5,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7729),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(569),
                             Estado = true,
                             ISBN = "978-84-16350-14-8",
                             Nombre = "Raúl Sendic",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7730)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(570)
                         },
                         new
                         {
                             IdBook = 6,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7731),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(571),
                             Estado = true,
                             ISBN = "978-84-7884-500-2",
                             Nombre = "Aquel año en Madrid",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7732)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(571)
                         },
                         new
                         {
                             IdBook = 7,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7733),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(573),
                             Estado = true,
                             ISBN = "978-956-366-003-6",
                             Nombre = "El último room service",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7733)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(573)
                         },
                         new
                         {
                             IdBook = 8,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7734),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(574),
                             Estado = false,
                             ISBN = "978-84-8136-572-6",
                             Nombre = "Príapos",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7735)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(575)
                         },
                         new
                         {
                             IdBook = 9,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7737),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(576),
                             Estado = false,
                             ISBN = "978-84-96546-19-6",
                             Nombre = "LO QUE DURA DURA",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7737)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(577)
                         },
                         new
                         {
                             IdBook = 10,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7738),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(578),
                             Estado = false,
                             ISBN = "978-84-7884-370-1",
                             Nombre = "De la Habana ha llegado",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7739)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(578)
                         },
                         new
                         {
                             IdBook = 11,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7740),
+                            CreatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(579),
                             Estado = false,
                             ISBN = "978-959-218-103-8",
                             Nombre = "El aguacate y la virtud",
-                            UpdatedAt = new DateTime(2023, 9, 8, 22, 37, 12, 410, DateTimeKind.Utc).AddTicks(7741)
+                            UpdatedAt = new DateTime(2023, 9, 8, 22, 32, 48, 210, DateTimeKind.Utc).AddTicks(580)
                         });
                 });
 
@@ -786,10 +789,16 @@ namespace BootstrapDashboard.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("created_at");
 
-                    b.Property<int>("LectorId")
+                    b.Property<int>("IdLector")
                         .HasColumnType("int");
 
-                    b.Property<int>("LibroId")
+                    b.Property<int>("IdLibro")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LectorIdLector")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LibroIdBook")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -798,9 +807,9 @@ namespace BootstrapDashboard.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("LectorId");
+                    b.HasIndex("LectorIdLector");
 
-                    b.HasIndex("LibroId");
+                    b.HasIndex("LibroIdBook");
 
                     b.ToTable("prestamos");
 
@@ -809,24 +818,24 @@ namespace BootstrapDashboard.Migrations
                         {
                             Id = 1,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LectorId = 23,
-                            LibroId = 5,
+                            IdLector = 23,
+                            IdLibro = 5,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LectorId = 19,
-                            LibroId = 6,
+                            IdLector = 19,
+                            IdLibro = 6,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LectorId = 7,
-                            LibroId = 7,
+                            IdLector = 7,
+                            IdLibro = 7,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
@@ -846,15 +855,11 @@ namespace BootstrapDashboard.Migrations
                 {
                     b.HasOne("BootstrapDashboard.Models.Lector", "Lector")
                         .WithMany()
-                        .HasForeignKey("LectorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("LectorIdLector");
 
                     b.HasOne("BootstrapDashboard.Models.Libro", "Libro")
                         .WithMany()
-                        .HasForeignKey("LibroId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("LibroIdBook");
 
                     b.Navigation("Lector");
 

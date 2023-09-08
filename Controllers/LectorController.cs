@@ -107,7 +107,7 @@ public class LectorController : Controller
         {
             ModelState.Clear();
             await _lectoresService.UpdateLector(lector);
-            TempData["mensaje"] = string.Format("El lector {0} ha sido modificado correctamente", lectorExistente.NombreCompleto.ToString());
+            TempData["mensaje"] = string.Format("El lector {0} ha sido modificado correctamente", lector.NombreCompleto.ToString());
         }
         return RedirectToAction(nameof(Index));
     }
