@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using BootstrapDashboard.Services;
 using X.PagedList;
 using System.Data;
+using Newtonsoft.Json;
 
 namespace BootstrapDashboard.Controllers;
 
@@ -61,7 +62,10 @@ public class LectorController : Controller
         if (id == 0)
             return View(new Lector());
         else
+        {
+            ModelState.Clear();
             return View(await _lectoresService.GetLectorById(id));
+        }
     }
 
     // POST: Lector/AddOrEdit
@@ -69,18 +73,20 @@ public class LectorController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> CrearAsync([Bind("IdLector, Nombre,Apellidos,Email,Telefono,Direccion")] Lector lector)
+    public async Task<ActionResult> Crear([Bind("IdLector,Nombre,Apellidos,Email,Telefono,Direccion")] Lector lector)
     {
+        // Logger.LogInformation("PostModel: " + JsonConvert.SerializeObject(lector, Formatting.None));
         try
         {
             if (ModelState.IsValid)
             {
                 if (lector.IdLector == 0)
                 {
-                    return CrearLector(lector);
+                    return await CrearLector(lector);
                 }
                 else
                 {
+                    ModelState.Clear();
                     return await EditarLector(lector);
                 }
             }
@@ -89,30 +95,32 @@ public class LectorController : Controller
         {
             //Log the error (uncomment dex variable name and add a line here to write a log.
             ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+            return StatusCode(StatusCodes.Status500InternalServerError, "Error updating data");
         }
         return View(model: lector);
     }
 
-    private async Task<IActionResult> EditarLector(Lector lector)
+    private async Task<ActionResult> EditarLector(Lector lector)
     {
         var lectorExistente = await _lectoresService.GetLectorById(lector.IdLector);
         if (lectorExistente is not null)
         {
-            _lectoresService.UpdateLector(lectorExistente);
-            TempData["mensaje"] = string.Format("El libro {0} ha sido modificado correctamente", lectorExistente.NombreCompleto.ToString());
+            ModelState.Clear();
+            await _lectoresService.UpdateLector(lector);
+            TempData["mensaje"] = string.Format("El lector {0} ha sido modificado correctamente", lectorExistente.NombreCompleto.ToString());
         }
         return RedirectToAction(nameof(Index));
     }
 
-    private IActionResult CrearLector(Lector lector)
+    private async Task<ActionResult> CrearLector(Lector lector)
     {
-        _lectoresService.AddLector(lector);
+        await _lectoresService.AddLector(lector);
         TempData["mensaje"] = string.Format("El lector {0} {1} ha sido adicionado correctamente.", lector.Nombre.ToString(), lector.Apellidos.ToString());
         // return RedirectToAction(nameof(Crear));
         return RedirectToAction(nameof(Index));
     }
 
-    // POST: Libro/Delete/5
+    // POST: Lector/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
     /**
@@ -137,18 +145,8 @@ public class LectorController : Controller
 
     [AcceptVerbs("Get", "Post")]
     [AllowAnonymous]
-    public async Task<IActionResult> IsEmailInUse(string email)
+    public async Task<string> IsEmailInUse(string email)
     {
-        //check if the emailAddress already exists or not in database
-        // var user = await _dbContext.managers.Where(x => x.Email == email).FirstOrDefaultAsync();
-        // if (user == null)
-        // {
-        //     return Json(true);
-        // }
-        // else
-        // {
-        //     return Json($"Email {email} is already in use");
-        // }
-        return null;
+        return await _lectoresService.IsEmailInUse(email);
     }
 }

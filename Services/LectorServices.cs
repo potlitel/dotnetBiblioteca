@@ -19,6 +19,8 @@ namespace BootstrapDashboard.Services
         Task UpdateLector(Lector lector);
 
         Task DeleteLectorAsync(int Id);
+
+        Task<string> IsEmailInUse(string email);
     }
 
     public class LectorService : ILectoresService
@@ -61,8 +63,15 @@ namespace BootstrapDashboard.Services
          * @returns {a        */
         public async Task AddLector(Lector lector)
         {
-            _context.Lectores.Add(lector);
-            await _context.SaveChangesAsync();
+            if (lector is not null)
+            {
+                _context.Lectores.Add(lector);
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                new StatusCodeResult(404);
+            }
         }
 
         /**
@@ -83,6 +92,10 @@ namespace BootstrapDashboard.Services
                 _context.Lectores.Update(foundLector);
                 await _context.SaveChangesAsync();
             }
+            else
+            {
+                new StatusCodeResult(404);
+            }
         }
 
         /**
@@ -96,6 +109,10 @@ namespace BootstrapDashboard.Services
             {
                 _context.Lectores.Remove(foundLector);
                 await _context.SaveChangesAsync();
+            }
+            else
+            {
+                new StatusCodeResult(404);
             }
         }
 
@@ -116,6 +133,22 @@ namespace BootstrapDashboard.Services
                         select lector.IdLector;
 
             return await query.CountAsync();
+        }
+
+        public async Task<string> IsEmailInUse(string email)
+        {
+            string result = "";
+            //check if the emailAddress already exists or not in database
+            var user = await _context.Lectores.Where(x => x.Email == email).FirstOrDefaultAsync();
+            if (user is not null)
+            {
+                result = string.Format("Email {email} is already in use", email);
+            }
+            else
+            {
+                new StatusCodeResult(404);
+            }
+            return result;
         }
     }
 }

@@ -19,8 +19,8 @@ public class Lector : BaseEntity
 
     [Required(ErrorMessage = "Email de lector es requerido")]
     [EmailAddress(ErrorMessage = "Email inválido")]
-    [Remote(action: "IsEmailInUse", controller: "Home")]
-    public string Email { get; set; } = default!;
+    // [Remote("IsEmailInUse", "Lector", HttpMethod = "POST", ErrorMessage = "UserName already exists!")]
+    public string Email { get; set; }
 
     [NotMapped]
     public string NombreCompleto

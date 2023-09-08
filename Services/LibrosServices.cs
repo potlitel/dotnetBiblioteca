@@ -1,4 +1,5 @@
 using BootstrapDashboard.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
@@ -55,6 +56,10 @@ namespace BootstrapDashboard.Services
          * @returns {a        */
         public Libro? GetLibroById(int Id)
         {
+            // if(Id == null)
+            // {
+            //     return new StatusCodeResult(404);
+            // }
             return _context.Libros.Find(keyValues: Id);
         }
 
