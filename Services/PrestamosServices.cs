@@ -48,6 +48,13 @@ namespace BootstrapDashboard.Services
             if (prstamo is not null)
             {
                 _context.Prestamos.Add(prstamo);
+                Libro? foundBook = _context.Libros.FirstOrDefault(book => book.IdBook == prstamo.LibroId);
+                if (foundBook is not null)
+                {
+                    foundBook.Estado = true;
+                    _context.Libros.Update(foundBook);
+                    // _context.SaveChanges();
+                }
                 await _context.SaveChangesAsync();
             }
             else

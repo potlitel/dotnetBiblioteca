@@ -6,6 +6,10 @@ This repository represents a realization of the practical exercise of the follow
 
 <img src="images/Resume.gif" alt="Logo" width="840" height="480">
 
+### Pending issues
+
+[reactive](https://github.com/dotnet/reactive)
+
 ### Usefull links
 
 [How to Integrate AdminLTE with ASP.NET Core? Detailed](https://codewithmukesh.com/blog/integrating-adminlte-with-aspnet-core/)

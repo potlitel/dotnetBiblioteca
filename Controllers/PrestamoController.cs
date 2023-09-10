@@ -29,21 +29,21 @@ public class PrestamoController : Controller
     {
         // Thread.Sleep(2000);
         var result = await _prestamosService.GetPrestamosAsync();
-        var count = await _prestamosService.GetPrestamosAsync();
+        var count = await _prestamosService.GetPrestamosCount();
         if (!string.IsNullOrEmpty(q))
         {
             page = 1;
-            // result = result.Where(s => s.Nombre.ToUpper().Contains(q.ToUpper())
-            //                        || s.Apellidos.ToUpper().ToString().Contains(q.ToUpper())
-            //                        || s.Email.ToUpper().ToString().Contains(q.ToUpper())
-            //                        || s.Direccion.ToUpper().ToString().Contains(q.ToUpper())
-            //                        || s.Telefono.ToUpper().ToString().Contains(q.ToUpper())).ToList();
+            result = result.Where(s => s.Libro.Nombre.ToUpper().Contains(q.ToUpper())
+                                   || s.Libro.ISBN.ToUpper().ToString().Contains(q.ToUpper())
+                                   || s.Lector.NombreCompleto.ToUpper().ToString().Contains(q.ToUpper())
+                                   || s.Lector.Email.ToUpper().ToString().Contains(q.ToUpper())
+                                   || s.Lector.Telefono.ToUpper().ToString().Contains(q.ToUpper())).ToList();
         }
-        // if (count == 0 && q != string.Empty)
-        //     TempData["mensaje"] = "No se ha encontrado ningún lector con el criterio de búsqueda especificado.";
-        // else
-        // if (count == 0 && q == string.Empty)
-        //     TempData["mensaje"] = "No existen lectores para mostrar.";
+        if (count == 0 && q != string.Empty)
+            TempData["mensaje"] = "No se ha encontrado ningún préstamo con el criterio de búsqueda especificado.";
+        else
+        if (count == 0 && q == string.Empty)
+            TempData["mensaje"] = "No existen préstamos para mostrar.";
 
         int pageSize = 5;
         int pageNumber = page ?? 1;
@@ -69,7 +69,7 @@ public class PrestamoController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<ActionResult> Crear([Bind("IdLector,IdLibro")] Prestamo prstamo)
+    public async Task<ActionResult> Crear([Bind("LibroId,LectorId")] Prestamo prstamo)
     {
         try
         {
