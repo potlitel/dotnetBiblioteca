@@ -94,6 +94,9 @@ public class BibliotecaContext : DbContext
         modelBuilder.Entity<Libro>()
         .HasIndex(u => u.ISBN)
         .IsUnique();
+        //Establecemos para la entidad Préstamo, que los campos LibroId y LectorId sean únicos en todo el sistema
+        modelBuilder.Entity<Prestamo>()
+            .HasIndex(p => new { p.LibroId, p.LectorId }).IsUnique();
 
         modelBuilder.Entity<Genero>().HasData(
         new Genero
