@@ -79,11 +79,6 @@ public class PrestamoController : Controller
                 {
                     return await RegistrarPrestamo(prstamo);
                 }
-                // else
-                // {
-                //     ModelState.Clear();
-                //     return await EditarLector(lector);
-                // }
             }
         }
         catch (DataException /* dex */)
@@ -136,5 +131,28 @@ public class PrestamoController : Controller
             //Log the error (uncomment dex variable name and add a line here to write a log.
             ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
         }
+    }
+
+    // POST: Prestamo/Delete/5
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    /**
+     * Description
+     * @param {any} intid
+     * @returns {any}
+        */
+    public async Task<IActionResult> DeleteConfirmed(int id)
+    {
+        try
+        {
+            await _prestamosService.DeletePrestamoAsync(id);
+            TempData["mensaje"] = string.Format("El préstamo ha sido cancelado correctamente");
+        }
+        catch (DataException /* dex */)
+        {
+            //Log the error (uncomment dex variable name and add a line here to write a log.
+            ModelState.AddModelError("", "Unable to delete. Try again, and if the problem persists see your system administrator.");
+        }
+        return RedirectToAction(nameof(Index));
     }
 }

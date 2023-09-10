@@ -97,7 +97,7 @@ namespace BootstrapDashboard.Services
                 new StatusCodeResult(404);
             }
         }
-
+ 
         /**
          * Description: Function para eliminar un lector
          * @param {any} intId

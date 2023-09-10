@@ -2,8 +2,25 @@ using BootstrapDashboard.Middleware;
 using BootstrapDashboard.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+// using AspNetCoreHero.ToastNotification;
+// using NToastNotify;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// // Add services to the container.
+// builder.Services.AddRazorPages().AddNToastNotifyNoty(new NotyOptions
+// {
+//     ProgressBar = true,
+//     Timeout = 5000
+// });
+
+// // Add ToastNotification
+// builder.Services.AddNotyf(config =>
+// {
+//     config.DurationInSeconds = 5;
+//     config.IsDismissable = true;
+//     config.Position = NotyfPosition.TopRight;
+// });
 
 builder.Services.AddDbContext<BibliotecaContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

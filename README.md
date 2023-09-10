@@ -45,3 +45,5 @@ This repository represents a realization of the practical exercise of the follow
 [Select records that does not exist in another table in Entity Framework](https://stackoverflow.com/questions/21766856/select-records-that-does-not-exist-in-another-table-in-entity-framework)
 
 [aspnetawesome](https://demo.aspnetawesome.com/)
+
+[How to add Toast Notifications in an ASP.NET Core Web App (.NET 6)](https://blog.christian-schou.dk/toast-notifications-in-an-asp-net-core-web-app/)

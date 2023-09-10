@@ -12,6 +12,7 @@ namespace BootstrapDashboard.Services
         Task<int> GetPrestamosCount();
         Task<List<SelectListItem>> PopulateLibros();
         Task<List<SelectListItem>> PopulateLectores();
+        Task DeletePrestamoAsync(int Id);
     }
 
     public class PrestamosService : IPrestamosService
@@ -83,6 +84,31 @@ namespace BootstrapDashboard.Services
                         select prestamo.Id;
 
             return await query.CountAsync();
+        }
+
+        /**
+         * Description: Function para eliminar un lector
+         * @param {any} intId
+         * @returns {a        */
+        public async Task DeletePrestamoAsync(int Id)
+        {
+            // Prestamo IdBook = await _context.Prestamos.FirstOrDefaultAsync(prs => prs.Id == Id);
+            Prestamo? foundPrestamo = await _context.Prestamos.FindAsync(keyValues: Id);
+            if (foundPrestamo is not null)
+            {
+                _context.Prestamos.Remove(foundPrestamo);
+                Libro? foundBook = _context.Libros.FirstOrDefault(book => book.IdBook == foundPrestamo.LibroId);
+                if (foundBook is not null)
+                {
+                    foundBook.Estado = false;
+                    _context.Libros.Update(foundBook);
+                }
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                new StatusCodeResult(404);
+            }
         }
     }
 }
