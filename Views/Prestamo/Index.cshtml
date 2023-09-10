@@ -1,0 +1,124 @@
+@* @model List<Genero> *@
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@* @using X.PagedList.Mvc.Core.Common; *@
+@model X.PagedList.IPagedList<Prestamo>
+@{
+    ViewData["Title"] = "Préstamos Listado"; Layout =
+    "~/Views/Shared/Dashboardpack/_Layout.cshtml";
+}
+
+
+<div class="app-main__inner">
+
+    @* Convertir en partial view *@
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-ticket icon-gradient bg-mean-fruit"> </i>
+                </div>
+                <div>
+                    Préstamos
+                    <div class="page-title-subheading">
+                        @* This is an example dashboard created using build-in
+                        elements and components. *@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @* Convertir en partial view *@
+    @if (TempData["mensaje"] != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Info:</strong> @TempData["mensaje"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-header d-flex flex-row justify-content-between align-items-center">
+                    Listado
+                    <div class="search-box">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <input type="text" name="q" value="@ViewBag.searchQuery"
+                                    class="search-text form-control" placeholder="Localiza tu libro..." />
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-toggle="tooltip" title="Buscar"
+                                data-placement="bottom"><i class="fa fa-search"></i></button>|
+                            <button asp-action="Index" class="btn btn-primary" data-toggle="tooltip"
+                                title="Recargar datos de listado" data-placement="bottom"><i
+                                    class="fa fa-refresh"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Nombre Libro</th>
+                                <th class="text-center">Nombre Lector</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int i = 1;
+                            }
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    @* <td class="text-center text-muted">@i</td> *@
+                                    <td class="text-center text-muted">
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+                                                @* <div class="widget-content-left mr-3">
+                                            <div class="widget-content-left">
+                                            <img
+                                            width="40"
+                                            class="rounded-circle"
+                                            src="~/images/avatars/319-3191274_male-avatar-admin-profile.png"
+                                            alt=""
+                                            />
+                                            </div>
+                                            </div> *@
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-subheading opacity-7">
+                                                        @item.Libro.Nombre
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">@item.Lector.NombreCompleto</td>
+                                    @* <td class="text-center">
+                                <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm">
+                                Editar
+                                </button>
+                                </td> *@
+                                </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="d-block text-center card-footer">
+                    @* @Html.PagedListPager(Model, page => Url.Action("Index",new { page, sortOrder =
+                    ViewBag.CurrentSort,
+                    currentFilter = ViewBag.CurrentFilter }),
+                    new PagedListRenderOptions(){ LiElementClasses = new string[] { "page-item" },
+                    PageClasses = new string[] { "page-link" }}) *@
+                    @{
+                        await Html.RenderPartialAsync("_PaginationPartialView");
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

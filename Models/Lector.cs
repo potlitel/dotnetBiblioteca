@@ -27,7 +27,7 @@ public class Lector : BaseEntity
     {
         get
         {
-            return Nombre + Apellidos;
+            return Nombre + " " + Apellidos;
         }
     }
 

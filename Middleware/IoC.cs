@@ -13,6 +13,8 @@ namespace BootstrapDashboard.Middleware
             services.AddTransient<ILibrosService, LibrosService>();
             // Inyectamos el servicio de Lectores
             services.AddTransient<ILectoresService, LectorService>();
+            // Inyectamos el servicio de Préstamos
+            services.AddTransient<IPrestamosService, PrestamosService>();
             return services;
         }
     }

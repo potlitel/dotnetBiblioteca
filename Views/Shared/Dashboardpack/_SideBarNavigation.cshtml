@@ -1,128 +1,129 @@
 @using static BootstrapDashboard.Helpers.NavigationIndicatorHelper;
 @* <div class="app-main"> *@
-  <div class="app-sidebar sidebar-shadow">
-    <div class="app-header__logo">
-      <div class="logo-src"></div>
-      <div class="header__pane ml-auto">
-        <div>
-          <button
-            type="button"
-            class="hamburger close-sidebar-btn hamburger--elastic"
-            data-class="closed-sidebar"
-          >
-            <span class="hamburger-box">
-              <span class="hamburger-inner"></span>
-            </span>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="app-header__mobile-menu">
+<div class="app-sidebar sidebar-shadow">
+  <div class="app-header__logo">
+    <div class="logo-src"></div>
+    <div class="header__pane ml-auto">
       <div>
-        <button
-          type="button"
-          class="hamburger hamburger--elastic mobile-toggle-nav"
-        >
+        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
           <span class="hamburger-box">
             <span class="hamburger-inner"></span>
           </span>
         </button>
       </div>
     </div>
-    <div class="app-header__menu">
-      <span>
-        <button
-          type="button"
-          class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav"
-        >
-          <span class="btn-icon-wrapper">
-            <i class="fa fa-ellipsis-v fa-w-6"></i>
-          </span>
-        </button>
-      </span>
+  </div>
+  <div class="app-header__mobile-menu">
+    <div>
+      <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
     </div>
-    <div class="scrollbar-sidebar">
-      <div class="app-sidebar__inner">
-        <nav class="mt-2">
+  </div>
+  <div class="app-header__menu">
+    <span>
+      <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+        <span class="btn-icon-wrapper">
+          <i class="fa fa-ellipsis-v fa-w-6"></i>
+        </span>
+      </button>
+    </span>
+  </div>
+  <div class="scrollbar-sidebar">
+    <div class="app-sidebar__inner">
+      <nav class="mt-2">
         <ul class="vertical-nav-menu">
           @* <li class="app-sidebar__heading">Generals</li> *@
           <li class="nav-item">
-            <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link @Url.MakeActiveClass("home","index")">
+            <a asp-area="" asp-controller="Home" asp-action="Index"
+              class="nav-link @Url.MakeActiveClass("home","index")">
               <i class="metismenu-icon pe-7s-home customIcon"></i>
               Dashboard
             </a>
           </li>
           <li class="nav-item">
-            <a asp-area="" asp-controller="Genero" asp-action="Index" class="nav-link @Url.MakeActiveClass("genero","index")">
+            <a asp-area="" asp-controller="Genero" asp-action="Index"
+              class="nav-link @Url.MakeActiveClass("genero","index")">
               <i class="metismenu-icon pe-7s-ticket customIcon"></i>
               Géneros literarios
             </a>
           </li>
           <li class="nav-item ">
-            <a asp-area="" asp-controller="Libro" asp-action="Index" class="nav-link @Url.MakeActiveClass("libro","index")">
+            <a asp-area="" asp-controller="Libro" asp-action="Index"
+              class="nav-link @Url.MakeActiveClass("libro","index")">
               <i class="metismenu-icon pe-7s-notebook customIcon"></i>
               Libros
             </a>
           </li>
           <li class="nav-item ">
-            <a asp-area="" asp-controller="Lector" asp-action="Index" class="nav-link @Url.MakeActiveClass("lector","index")">
+            <a asp-area="" asp-controller="Lector" asp-action="Index"
+              class="nav-link @Url.MakeActiveClass("lector","index")">
               <i class="metismenu-icon pe-7s-users customIcon"></i>
               Lectores
             </a>
           </li>
-          </ul>
-          </nav>
-          @* <li>
-            <a href="#">
-              <i class="metismenu-icon pe-7s-id customIcon"></i>
-              Profile
+          <li class="nav-item ">
+            <a asp-area="" asp-controller="Prestamo" asp-action="Index"
+              class="nav-link @Url.MakeActiveClass("prestamo","index")">
+              <i class="metismenu-icon pe-7s-way customIcon"></i>
+              Préstamos
             </a>
           </li>
-                <li class="app-sidebar__heading">Extras</li>
-          <li>
-            <a href="#">
-              <i class="metismenu-icon pe-7s-date customIcon"></i>
-              Events
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="metismenu-icon pe-7s-headphones customIcon"></i>
-              Services
-              <i class="metismenu-state-icon pe-7s-angle-down caret-left customIcon"></i>
-            </a>
-            <ul>
-              <li>
-                <a href="#">
-                  <i class="metismenu-icon customIcon"></i>
-                 Arts & Entertainment
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="metismenu-icon customIcon"> </i>Non-profit Services
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="metismenu-icon customIcon"> </i>Maintenance & Cleaning
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="metismenu-icon customIcon"> </i>Agents & Brokers
-                </a>
-              </li>
-              </ul>
-          </li> *@ 
-      </div>
+        </ul>
+      </nav>
+      @* <li>
+      <a href="#">
+      <i class="metismenu-icon pe-7s-id customIcon"></i>
+      Profile
+      </a>
+      </li>
+      <li class="app-sidebar__heading">Extras</li>
+      <li>
+      <a href="#">
+      <i class="metismenu-icon pe-7s-date customIcon"></i>
+      Events
+      </a>
+      </li>
+      <li>
+      <a href="#">
+      <i class="metismenu-icon pe-7s-headphones customIcon"></i>
+      Services
+      <i class="metismenu-state-icon pe-7s-angle-down caret-left customIcon"></i>
+      </a>
+      <ul>
+      <li>
+      <a href="#">
+      <i class="metismenu-icon customIcon"></i>
+      Arts & Entertainment
+      </a>
+      </li>
+      <li>
+      <a href="#">
+      <i class="metismenu-icon customIcon"> </i>Non-profit Services
+      </a>
+      </li>
+      <li>
+      <a href="#">
+      <i class="metismenu-icon customIcon"> </i>Maintenance & Cleaning
+      </a>
+      </li>
+      <li>
+      <a href="#">
+      <i class="metismenu-icon customIcon"> </i>Agents & Brokers
+      </a>
+      </li>
+      </ul>
+      </li> *@
     </div>
   </div>
-          @* <div class="app-main__outer">
+</div>
+@* <div class="app-main__outer">
 
-  </div> *@
-  <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-  <script>
-        
-    </script>
-          @* </div> *@
+</div> *@
+<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script>
+
+</script>
+@* </div> *@
