@@ -63,7 +63,8 @@ namespace BootstrapDashboard.Services
 
         public async Task<List<SelectListItem>> PopulateLibros()
         {
-            var LibrosCollection = await _context.Libros.Select(c => new SelectListItem() { Text = c.Nombre, Value = c.IdBook.ToString() }).ToListAsync();
+            var librosDisponibles = await _context.Libros.Where(c => !_context.Prestamos.Any(b => b.LibroId == c.IdBook)).ToListAsync();
+            var LibrosCollection = librosDisponibles.Select(c => new SelectListItem() { Text = c.Nombre, Value = c.IdBook.ToString() }).ToList();
             return LibrosCollection;
         }
     }
