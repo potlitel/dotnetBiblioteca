@@ -23,7 +23,7 @@ public class PrestamoController : Controller
      * @param {any} stringsortOrder
      * @param {any} stringq
      * @param {any} int?page
-     * @returns {any}
+     * @returns {any} 
         */
     public async Task<IActionResult> Index(string sortOrder, string q, int? page)
     {

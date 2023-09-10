@@ -9,6 +9,7 @@ namespace BootstrapDashboard.Services
     {
         Task<List<Prestamo>> GetPrestamosAsync();
         Task AddPrestamo(Prestamo prstamo);
+        Task<int> GetPrestamosCount();
         Task<List<SelectListItem>> PopulateLibros();
         Task<List<SelectListItem>> PopulateLectores();
     }
@@ -66,6 +67,15 @@ namespace BootstrapDashboard.Services
             var librosDisponibles = await _context.Libros.Where(c => !_context.Prestamos.Any(b => b.LibroId == c.IdBook)).ToListAsync();
             var LibrosCollection = librosDisponibles.Select(c => new SelectListItem() { Text = c.Nombre, Value = c.IdBook.ToString() }).ToList();
             return LibrosCollection;
+        }
+
+        public async Task<int> GetPrestamosCount()
+        {
+            var query = from prestamo in _context.Prestamos
+
+                        select prestamo.Id;
+
+            return await query.CountAsync();
         }
     }
 }

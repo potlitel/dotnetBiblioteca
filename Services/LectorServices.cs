@@ -12,7 +12,7 @@ namespace BootstrapDashboard.Services
 
         Task<Lector?> GetLectorByName(string name);
 
-        Task<int> GetLectoresCount();
+        Task<int> GetLectoresCount(); 
 
         Task AddLector(Lector lector);
 

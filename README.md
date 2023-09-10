@@ -37,3 +37,7 @@ This repository represents a realization of the practical exercise of the follow
 [Dashboard Application With ASP.NET MVC 5 And jQuery](https://www.c-sharpcorner.com/article/dashboard-application-with-asp-net-mvc-5-and-jquery/)
 
 [.NET: Entity Framework Async Query to Count Number of Rows](https://www.codelocker.net/p/338/dotnet-entity-framework-async-query-to-count-number-of-rows/)
+
+[Select records that does not exist in another table in Entity Framework](https://stackoverflow.com/questions/21766856/select-records-that-does-not-exist-in-another-table-in-entity-framework)
+
+[aspnetawesome](https://demo.aspnetawesome.com/)
