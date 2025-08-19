@@ -1,10 +1,48 @@
-# AdminLTE_Bootstrap
+# Sistema de Gestión de Préstamos de Libros
 
-# Info
+## Descripción
 
-This repository represents a realization of the practical exercise of the following link [How to Integrate AdminLTE with ASP.NET Core? Detailed](https://codewithmukesh.com/blog/integrating-adminlte-with-aspnet-core/) and looks like this:
+Este proyecto es un sistema de gestión de préstamos de libros desarrollado con ASP.NET Core MVC. Permite a los bibliotecarios y usuarios gestionar de manera eficiente los préstamos y devoluciones de libros, así como realizar otras actividades relacionadas con la biblioteca.
 
 <img src="images/Resume.gif" alt="Logo" width="840" height="480">
+
+## Características
+
+- **Gestión de Libros**: Agregar, editar y eliminar libros en la base de datos.
+- **Gestión de Usuarios**: Registro y gestión de usuarios que pueden realizar préstamos.
+- **Préstamos y Devoluciones**: Funcionalidad para prestar y devolver libros, con seguimiento de fechas y estados.
+- **Búsqueda de Libros**: Permite a los usuarios buscar libros por título, autor o género.
+- **Interfaz Amigable**: Diseño responsivo y fácil de usar para una mejor experiencia del usuario.
+
+## Tecnologías Utilizadas
+
+- **ASP.NET Core MVC**: Framework para construir aplicaciones web.
+- **Entity Framework Core**: ORM para interactuar con la base de datos.
+- **SQL Server**: Base de datos para almacenar la información de libros y usuarios.
+- **Bootstrap**: Framework CSS para un diseño responsivo.
+
+## Instalación
+
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/tu_usuario/nombre_del_repositorio.git
+   ```
+
+2.Navega al directorio del proyecto:
+
+  ```bash
+   cd nombre_del_repositorio
+   ```
+3.Restaura las dependencias:
+
+   ```bash
+   dotnet restore
+   ```
+4.Ejecuta la aplicación:
+
+   ```bash
+   dotnet run
+   ```
 
 ### Pending issues
 
@@ -47,3 +85,4 @@ This repository represents a realization of the practical exercise of the follow
 [aspnetawesome](https://demo.aspnetawesome.com/)
 
 [How to add Toast Notifications in an ASP.NET Core Web App (.NET 6)](https://blog.christian-schou.dk/toast-notifications-in-an-asp-net-core-web-app/)
+
