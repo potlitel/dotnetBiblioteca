@@ -48,6 +48,21 @@ Este proyecto es un sistema de gestión de préstamos de libros desarrollado con
 
 [reactive](https://github.com/dotnet/reactive)
 
+# Proyecto XYZ
+
+## Lista de Tareas
+
+### Tareas Pendientes
+- [ ] Usar mediatR en los controladores. Definir queries and commands. (https://felo.ai/search/2rLEcw8DxHfnu8HssTzvGy)
+- [ ] Serilog
+- [ ] RabbitMQ
+- [ ] WebHook
+- [ ] OpenTelemetry
+
+### Tareas Completadas
+- [x] Crear el repositorio en GitHub
+- [x] Definir los requisitos del proyecto
+
 ### Usefull links
 
 [How to Integrate AdminLTE with ASP.NET Core? Detailed](https://codewithmukesh.com/blog/integrating-adminlte-with-aspnet-core/)
@@ -85,4 +100,5 @@ Este proyecto es un sistema de gestión de préstamos de libros desarrollado con
 [aspnetawesome](https://demo.aspnetawesome.com/)
 
 [How to add Toast Notifications in an ASP.NET Core Web App (.NET 6)](https://blog.christian-schou.dk/toast-notifications-in-an-asp-net-core-web-app/)
+
 
